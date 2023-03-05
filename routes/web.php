@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,19 @@ use App\Http\Controllers\CartController;
 |
 */
 
+// redirect home to products
 Route::get('/', function () {
-    return view('index', ['products' => \App\Models\Product::all()]);
-})->name('home');
+    return redirect()->route('home');
+});
+
+// Product routes
+Route::prefix('products')->controller(ProductController::class)->group(function () {
+    // get all products
+    Route::get('/', 'index')->name('home');
+    // get single product
+    Route::get('/{product}', 'show')->name('products.show');
+});
+
 
 // route group for cart
 Route::prefix('cart')->controller(CartController::class)->group(function () {

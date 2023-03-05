@@ -6,32 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <title>Accueil</title>
+
+    {{-- boostrap --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    {{-- fontawesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    {{-- livewire --}}
+    @livewireStyles
 </head>
 <body>
     <x-navbar/>
     <main>
-        <div class="product-container">
-        @foreach ($products as $product)
-            <div class="product-card">
-              <div class="product-image">
-                <img src="{{ $product->image }}" alt="Product Image" />
-              </div>
-              <div class="product-details">
-                <div class="product-name">{{ $product->name }}</div>
-                <div class="product-price">{{ $product->price }} DH</div>
-                <div class="product-description">
-                  {{ $product->description }}
-                </div>
-                <form action="{{ route('cart.store')}}" method="post" class="product-quantity">
-                  @csrf
-                  <input type="hidden" name="product_id" value="{{ $product->id }}">
-                  <input type="number" name="quantity" id="quantity" value="1">
-                  <button type="submit" class="product-button">Add to Cart</button>
-                </form>
-              </div>
-            </div>
-            @endforeach
-        </div>
+        @yield('content')
     </main>
+
+    @livewireScripts
 </body>
 </html>

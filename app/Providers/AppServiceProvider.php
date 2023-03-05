@@ -26,5 +26,8 @@ class AppServiceProvider extends ServiceProvider
     {
         // set default string length
         Schema::defaultStringLength(191);
+
+        // boostrap pagination
+        \Illuminate\Pagination\Paginator::useBootstrap();
     }
 }
