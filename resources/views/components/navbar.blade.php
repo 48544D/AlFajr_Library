@@ -31,7 +31,9 @@
             <a href="">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span>Panier</span>
-                <span>({{ \Gloudemans\Shoppingcart\Facades\Cart::content()->count() }})</span>
+                <span>
+                    @livewire('cart-counter')
+                </span>
             </a>
         </div>
     </div>
