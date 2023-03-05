@@ -22,7 +22,11 @@
                 <div class="product-description">
                   {{ $product->description }}
                 </div>
-                <button class="product-button">Add to Cart</button>
+                <form action="{{ route('cart.store')}}" class="product-quantity">
+                  <input type="hidden" name="id" value="{{ $product->id }}">
+                  <input type="number" name="quantity" id="quantity" value="1">
+                  <button type="submit" class="product-button">Add to Cart</button>
+                </form>
               </div>
             </div>
             @endforeach

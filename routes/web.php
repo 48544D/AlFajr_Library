@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index', ['products' => \App\Models\Product::all()]);
 });
+
+// route group for cart
+Route::group(['prefix' => 'cart'], function () {
+    Route::get('/', 'CartController@index')->name('cart.index');
+    Route::post('/', 'CartController@store')->name('cart.store');
+    Route::delete('/', 'CartController@destroy')->name('cart.delete');
+});
