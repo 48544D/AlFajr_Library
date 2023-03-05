@@ -32,7 +32,7 @@
             <a href="">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span>Panier</span>
-                <span>(0)</span>
+                <span>({{ \Gloudemans\Shoppingcart\Facades\Cart::content()->count() }})</span>
             </a>
         </div>
     </div>

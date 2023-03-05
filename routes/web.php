@@ -16,7 +16,7 @@ use App\Http\Controllers\CartController;
 
 Route::get('/', function () {
     return view('index', ['products' => \App\Models\Product::all()]);
-});
+})->name('home');
 
 // route group for cart
 Route::prefix('cart')->controller(CartController::class)->group(function () {
