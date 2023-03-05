@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,11 @@ Route::get('/', function () {
 });
 
 // route group for cart
-Route::group(['prefix' => 'cart'], function () {
-    Route::get('/', 'CartController@index')->name('cart.index');
-    Route::post('/', 'CartController@store')->name('cart.store');
-    Route::delete('/', 'CartController@destroy')->name('cart.delete');
+Route::prefix('cart')->controller(CartController::class)->group(function () {
+    // get cart
+    // Route::get('/', 'index')->name('cart.index');
+    // add to cart
+    Route::post('/', 'store')->name('cart.store');
+    // update cart
+    // Route::delete('/', 'destroy')->name('cart.delete');
 });
