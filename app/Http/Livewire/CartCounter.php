@@ -7,6 +7,8 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartCounter extends Component
 {
+    protected $listeners = ['cart_update' => 'render'];
+
     public function render()
     {
         $cart_count = Cart::content()->count();

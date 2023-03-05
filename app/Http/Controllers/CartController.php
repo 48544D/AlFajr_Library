@@ -11,15 +11,15 @@ class CartController extends Controller
     // add to cart
     public function store(Request $request)
     {
-        $product = Product::findOrFail($request->input('product_id'));
+        // $product = Product::findOrFail($request->input('product_id'));
 
-        Cart::add(
-            $product->id,
-            $product->name,
-            $request->quantity,
-            $product->price
-        );
+        // Cart::add(
+        //     $product->id,
+        //     $product->name,
+        //     $request->quantity,
+        //     $product->price
+        // );
 
-        return redirect()->route('home');
+        // return redirect()->route('home');
     }
 }

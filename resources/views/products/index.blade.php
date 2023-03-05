@@ -1,5 +1,5 @@
 @extends('index')
 
 @section('content')
-    <x-product-cards :products="$products" />
+    @livewire('product-table')
 @endsection
