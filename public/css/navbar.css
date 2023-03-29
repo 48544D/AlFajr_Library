@@ -10,6 +10,7 @@ header {
     padding: 20px 0 0 0;
     background-color: #0056c8;
     z-index: 999;
+    position: fixed;
 }
 
 /* top section */

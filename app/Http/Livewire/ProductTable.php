@@ -5,24 +5,20 @@ namespace App\Http\Livewire;
 use App\Models\Product;
 use Livewire\Component;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Livewire\WithPagination;
 
 class ProductTable extends Component
 {
-    public array $quantity = [];
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
 
-    public function mount()
-    {
-        $products = Product::latest()->paginate(8);
-        foreach ($products as $product) {
-            $this->quantity[$product->id] = 1;
-        }
-    }
+    public $perPage = 12;
 
     public function render()
     {
-        $products = Product::latest()->paginate(8);
+        $products = Product::paginate($this->perPage);
 
-        return view('livewire.product-table', compact('products'));
+        return view('livewire.product-table', ['products' => $products]);
     }
 
     public function addToCart($product_id)
@@ -32,7 +28,7 @@ class ProductTable extends Component
         Cart::add(
             $product->id,
             $product->name,
-            $this->quantity[$product->id],
+            1,
             $product->price
         );
 
