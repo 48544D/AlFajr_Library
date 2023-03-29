@@ -101,6 +101,11 @@ main {
     outline: none;
 }
 
+.product-button:disabled {
+    background-color: #74d79d;
+    cursor: not-allowed;
+}
+
 .pagination {
     display: flex;
     justify-content: center;
