@@ -12,13 +12,12 @@
                         <button class="product-button" disabled>Added to Cart</button>
                     </div>
                     
-                @else
-                    
+            @else
                 <form wire:submit.prevent="addToCart({{ $product->id }})" action="{{ route('cart.store')}}" method="post" class="product-quantity">
                     @csrf
                     <button type="submit" class="product-button">Add to Cart</button>
                 </form>
-                @endif
+            @endif
         </div>
     </div>
 </div>

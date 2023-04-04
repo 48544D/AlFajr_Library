@@ -27,6 +27,8 @@ class ProductShow extends Component
         );
 
         $this->emit('cart_update');
+
+        return redirect()->route('home');
     }
 
     public function mount(Product $product)

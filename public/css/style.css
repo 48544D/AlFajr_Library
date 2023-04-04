@@ -5,3 +5,20 @@ main {
     width: 100%;
     height: calc(100% - 134px);
 }
+
+/* flash message */
+.flash-message {
+    position: fixed;
+    top: 1vw;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #27ae60;
+    color: white;
+    padding: .7vw 3vw;
+    z-index: 100;
+}
+
+.flash-message p {
+    font-size: 1.2vw;
+    margin: 0;
+}
