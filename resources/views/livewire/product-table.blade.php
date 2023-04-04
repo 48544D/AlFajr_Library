@@ -8,12 +8,13 @@
                 <div class="product-details">
                     <div class="product-info">
                         <div class="product-name">
-                            {{ $product->name }}
+                            <a href="products/{{$product->id}}">{{ $product->name }}</a>
                         </div>
                         <div class="product-price">
                             {{ $product->price }} DH
                         </div>
                     </div>
+                    
                     @if (Cart::content()->where('id', $product->id)->first())
                         <div class="product-quantity">
                             <button class="product-button" disabled>Added to Cart</button>

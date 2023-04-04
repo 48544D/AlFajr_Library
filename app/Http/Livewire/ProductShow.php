@@ -5,20 +5,14 @@ namespace App\Http\Livewire;
 use App\Models\Product;
 use Livewire\Component;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use Livewire\WithPagination;
 
-class ProductTable extends Component
+class ProductShow extends Component
 {
-    use WithPagination;
-    protected $paginationTheme = 'bootstrap';
-
-    public $perPage = 8;
+    public $product;
 
     public function render()
     {
-        $products = Product::filter(request(['search']))->paginate($this->perPage);
-
-        return view('livewire.product-table', ['products' => $products]);
+        return view('livewire.product-show');
     }
 
     public function addToCart($product_id)
@@ -33,5 +27,10 @@ class ProductTable extends Component
         );
 
         $this->emit('cart_update');
+    }
+
+    public function mount(Product $product)
+    {
+        $this->product = $product;
     }
 }

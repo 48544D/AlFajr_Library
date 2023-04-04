@@ -1,15 +1,15 @@
-<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 
 <header>
     <div class="top-section">
         <div class="logo">
-            <a href="">
+            <a href="/">
                 <img src="{{ asset('storage/images/logo.png') }}" alt="logo">
             </a>
         </div>
         <div class="search">
             <form action="" method="GET">
-                <input type="text" name="search" placeholder="Recherecher">
+                <input type="text" name="search" placeholder="Recherecher" value="{{ request('search') }}">
                 <button type="submit">
                     <i class="fa fa-search"></i>
                 </button>
@@ -41,7 +41,7 @@
     <div class="bottom-section">
         <ul>
             <li>
-                <a href=""><i class="fa fa-home" aria-hidden="true"></i></a>
+                <a href="/"><i class="fa fa-home" aria-hidden="true"></i></a>
             </li>
             <li>
                 <a href="">LIVRES</a>
