@@ -1,16 +1,14 @@
 /* Product container */
 .product-container {
-    padding: 1.5vw 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    padding: 20px 10px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 1.5rem;
+    margin: 0 1rem;
 }
 
 /* Product card */
 .product-card {
-    flex: 0 0 18vw;
     min-height: 23vw;
     max-height: 23vw;
     margin: 1vw;
