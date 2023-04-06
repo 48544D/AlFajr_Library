@@ -7,15 +7,7 @@
                 <img src="{{ asset('storage/images/logo.png') }}" alt="logo">
             </a>
         </div>
-        <div class="search">
-            {{-- <form action="" method="GET">
-                <input type="text" name="search" placeholder="Recherecher" value="{{ request('search') }}">
-                <button type="submit">
-                    <i class="fa fa-search"></i>
-                </button>
-            </form> --}}
-            @livewire('product-search')
-        </div>
+        @livewire('product-search')
         <div class="user">
             @if (Auth::check())
                 <a href="">

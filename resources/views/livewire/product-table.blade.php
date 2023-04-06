@@ -1,6 +1,6 @@
-<div>
-    <div class="product-container">
-        @unless (count($products) == 0)
+<div class="product-table">
+    @unless (count($products) == 0)
+        <div class="product-container" {{-- wire:loading.remove --}}>
             @foreach ($products as $product)
                 <div class="product-card">
                     <div class="product-image">
@@ -18,25 +18,26 @@
                         
                         @if (Cart::content()->where('id', $product->id)->first())
                             <div class="product-quantity">
-                                <button class="product-button" disabled>Added to Cart</button>
+                                <button class="product-button" disabled>Ajouté au panier</button>
                             </div>
                             
                         @else
                             
                         <form wire:submit.prevent="addToCart({{ $product->id }})" action="{{ route('cart.store')}}" method="post" class="product-quantity">
                             @csrf
-                            <button type="submit" class="product-button">Add to Cart</button>
+                            <button type="submit" class="product-button">Ajouter au panier</button>
                         </form>
                         @endif
                     </div>
                 </div>
             @endforeach
-        @else
-            <div class="center">
-                <h2 style="font-family: 'ubuntu', sans-serif">No Products To Show</h2>
-            </div>
-        @endunless
-    </div>
+        </div>
+    @else
+        <div class="no-product">
+            <h2>No Products To Show</h2>
+        </div>
+    @endunless
+    
     <div class="pagination">
         {{ $products->links() }}
     </div>
@@ -48,5 +49,10 @@
             </p>
         </div>
     @endif
+
+    {{-- loading --}}
+    {{-- <div wire:loading class="loading-container">
+        <div class="loading-spinner"></div>
+    </div> --}}
 </div>    
 

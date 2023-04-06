@@ -10,13 +10,13 @@
                 <p>Prix: {{ $product->price }} Dh</p>
                 @if (Cart::content()->where('id', $product->id)->first())
                         <div class="product-quantity">
-                            <button class="product-button" disabled>Added to Cart</button>
+                            <button class="product-button" disabled>Ajouté au panier</button>
                         </div>
                         
                 @else
                     <form wire:submit.prevent="addToCart({{ $product->id }})" action="{{ route('cart.store')}}" method="post" class="product-quantity">
                         @csrf
-                        <button type="submit" class="product-button">Add to Cart</button>
+                        <button type="submit" class="product-button">Ajouter au panier</button>
                     </form>
                 @endif
             </div>

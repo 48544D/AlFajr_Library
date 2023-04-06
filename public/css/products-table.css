@@ -1,3 +1,7 @@
+.product-table {
+    height: 100%;
+}
+
 /* Product container */
 .product-container {
     padding: 20px 10px;
@@ -111,4 +115,12 @@
     justify-content: center;
     margin-top: 1vw;
     width: 100%;
+}
+
+/* no product to show */
+.no-product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
