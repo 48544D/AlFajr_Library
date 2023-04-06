@@ -8,12 +8,13 @@
             </a>
         </div>
         <div class="search">
-            <form action="" method="GET">
+            {{-- <form action="" method="GET">
                 <input type="text" name="search" placeholder="Recherecher" value="{{ request('search') }}">
                 <button type="submit">
                     <i class="fa fa-search"></i>
                 </button>
-            </form>
+            </form> --}}
+            @livewire('product-search')
         </div>
         <div class="user">
             @if (Auth::check())

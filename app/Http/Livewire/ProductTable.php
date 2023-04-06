@@ -11,12 +11,14 @@ class ProductTable extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+    protected $listeners = ['reloadProducts'];
 
     public $perPage = 8;
+    protected $emited_products;
 
     public function render()
     {
-        $products = Product::filter(request(['search']))->paginate($this->perPage);
+        $products = $this->emited_products ?? Product::paginate($this->perPage);
 
         return view('livewire.product-table', ['products' => $products]);
     }
@@ -35,5 +37,12 @@ class ProductTable extends Component
         $this->emit('cart_update');
 
         session()->flash('message', 'Produit ajouté au panier !');
+    }
+
+    public function reloadProducts($query)
+    {
+        $this->resetPage();
+        $this->emited_products = Product::where('name', 'like', '%' . $query . '%')->paginate($this->perPage);
+        $this->render();
     }
 }
