@@ -67,7 +67,7 @@ header {
 }
 
 .top-section .user a:hover {
-    color: #c52510;
+    color: var(--navbar-hover);
 }
 
 .top-section .user a i {
@@ -86,7 +86,7 @@ header {
 }
 
 .top-section .cart:hover > a {
-    color: #c52510;
+    color: var(--navbar-hover);
 }
 
 /* bottom section */
@@ -106,5 +106,5 @@ header {
 }
 
 .bottom-section ul li a:hover {
-    color: #c52510;
+    color: var(--navbar-hover);
 }
