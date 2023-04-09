@@ -7,9 +7,9 @@
 
 main {
     position: absolute;
-    top: 11vw;
+    top: 10.5vw;
     left: 0;
     width: 100%;
-    height: calc(100% - 11vw);
+    height: calc(100% - 10.5vw);
 }
 

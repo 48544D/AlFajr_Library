@@ -1,6 +1,17 @@
-/* .table td {
+.table-container {
+    height: 71vh;
+    overflow-y: auto;
+}
+
+.table-container table thead {
+    background-color: #f5f5f5;
+    position: sticky;
+    top: 0;
+}
+
+.table-container table td {
     vertical-align: middle;
-} */
+}
 
 .cart-img {
     display: flex;
@@ -88,6 +99,7 @@ input::-webkit-inner-spin-button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 25vw;
     gap: 3vw;
     padding: 1vw 0;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
