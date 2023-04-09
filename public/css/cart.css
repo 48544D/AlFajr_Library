@@ -3,6 +3,25 @@
     overflow-y: auto;
 }
 
+.table-container::-webkit-scrollbar {
+    width: .2vw;
+}
+
+/* Track */
+.table-container::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+.table-container::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
 .table-container table thead {
     background-color: #f5f5f5;
     position: sticky;
