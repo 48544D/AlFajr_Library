@@ -27,12 +27,18 @@ class ProductTable extends Component
     {
         $product = Product::findOrFail($product_id);
 
-        Cart::add(
-            $product->id,
-            $product->name,
-            1,
-            $product->price
-        );
+        // dd($product->image);
+
+        Cart::add([
+            'id' => $product->id,
+            'name' => $product->name,
+            'qty' => 1,
+            'price' => $product->price,
+            'weight' => 0,
+            'options' => [
+                'image' => $product->image,
+            ]
+        ]);
 
         $this->emit('cart_update');
 

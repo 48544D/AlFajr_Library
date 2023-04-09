@@ -32,9 +32,5 @@ Route::prefix('products')->controller(ProductController::class)->group(function 
 // route group for cart
 Route::prefix('cart')->controller(CartController::class)->group(function () {
     // get cart
-    // Route::get('/', 'index')->name('cart.index');
-    // add to cart
-    Route::post('/', 'store')->name('cart.store');
-    // update cart
-    // Route::delete('/', 'destroy')->name('cart.delete');
+    Route::get('/', 'index')->name('cart.index');
 });

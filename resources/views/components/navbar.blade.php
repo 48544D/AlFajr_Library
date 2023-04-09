@@ -21,7 +21,7 @@
             @endif
         </div>
         <div class="cart">
-            <a href="">
+            <a href="{{ route('cart.index') }}">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span>Panier</span>
                 <span>

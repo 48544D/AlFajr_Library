@@ -7,7 +7,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 0 0 0;
+    padding: 1vw 0 0 0;
     background-color: #0056c8;
     z-index: 6;
 }
@@ -17,11 +17,11 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    height: 50%;
 }
 
 .top-section .logo img {
-    width: 100px;
-    /* height: 100px; */
+    width: 6vw;
 }
 
 /* search */
@@ -38,13 +38,13 @@ header {
 
 .top-section .search input {
     width: 100%;
-    height: 40px;
+    height: 2.5vw;
     background-color: #f2f2f2;
     padding: 0 10px;
     border: none;
     outline: none;
     background-color: transparent;
-    font-size: 18px;
+    font-size: 1.3vw;
 }
 
 .top-section .search button {
@@ -52,7 +52,7 @@ header {
     outline: none;
     background-color: transparent;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1.3vw;
 }
 
 /* Login */
@@ -61,7 +61,7 @@ header {
     align-items: center;
     text-decoration: none;
     color: #fff;
-    gap: 10px;
+    gap: .5vw;
     font-size: 1.5vw;
     transition: all 0.3s ease;
 }
@@ -80,7 +80,7 @@ header {
     align-items: center;
     text-decoration: none;
     color: #fff;
-    gap: 10px;
+    gap: .5vw;
     font-size: 1.4vw;
     transition: all 0.3s ease;
 }
@@ -90,6 +90,10 @@ header {
 }
 
 /* bottom section */
+.bottom-section {
+    height: 50%;   
+}
+
 .bottom-section ul {
     display: flex;
     justify-content: space-evenly;

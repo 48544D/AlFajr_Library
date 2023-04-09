@@ -8,18 +8,9 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartController extends Controller
 {
-    // add to cart
-    public function store(Request $request)
+    // get cart
+    public function index()
     {
-        // $product = Product::findOrFail($request->input('product_id'));
-
-        // Cart::add(
-        //     $product->id,
-        //     $product->name,
-        //     $request->quantity,
-        //     $product->price
-        // );
-
-        // return redirect()->route('home');
+        return view('cart.index');
     }
 }

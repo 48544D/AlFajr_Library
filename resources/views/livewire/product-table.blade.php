@@ -1,6 +1,6 @@
 <div class="product-table">
     @unless (count($products) == 0)
-        <div class="product-container" {{-- wire:loading.remove --}}>
+        <div class="product-container">
             @foreach ($products as $product)
                 <div class="product-card">
                     <div class="product-image">
@@ -23,7 +23,7 @@
                             
                         @else
                             
-                        <form wire:submit.prevent="addToCart({{ $product->id }})" action="{{ route('cart.store')}}" method="post" class="product-quantity">
+                        <form wire:submit.prevent="addToCart({{ $product->id }})" class="product-quantity">
                             @csrf
                             <button type="submit" class="product-button">Ajouter au panier</button>
                         </form>
