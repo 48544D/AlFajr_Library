@@ -7,15 +7,14 @@
     padding: 20px 10px;
     display: grid;
     grid-template-columns: repeat(4, minmax(0,1fr));
-    gap: 1.5rem;
+    gap: 1.5vw;
     margin: 0 1rem;
 }
 
 /* Product card */
 .product-card {
-    height: max-content;
-    max-height: 23vw;
-    margin: 1vw;
+    height: 25vw;
+    /* margin: 1vw; */
     padding: 1vw;
     width: 18vw;
     border: 1px solid #ccc;
@@ -46,11 +45,15 @@
 
 /* Product details */
 .product-details {
-    padding: .8vw 0;
+    padding: .8vw 0 0 0;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     gap: 2vw;
+}
+
+.product-details form {
+    margin: 0;
 }
 
 .product-name {
@@ -61,6 +64,12 @@
 .product-name a {
     color: #000;
     text-decoration: none;
+    /* 2 lines max */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    
 }
 
 .product-name a:hover {

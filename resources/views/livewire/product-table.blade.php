@@ -4,7 +4,8 @@
             @foreach ($products as $product)
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="{{ $product->image }}" alt="Product Image" />
+                        {{-- <img src="{{ $product->image }}" alt="Product Image" /> --}}
+                        <img src="{{ asset('storage/'.$product->image) }}" alt="Product Image" />
                     </div>
                     <div class="product-details">
                         <div class="product-info">

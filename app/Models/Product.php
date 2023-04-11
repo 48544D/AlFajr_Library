@@ -9,7 +9,6 @@ class Product extends Model
 {
     protected $fillable = [
         'name',
-        'description',
         'price',
         'image',
         'category',
@@ -23,5 +22,10 @@ class Product extends Model
         if ($filters['search'] ?? false) {
             $query->where('name', 'like', '%' . $filters['search'] . '%');
         }
+    }
+    
+    public function subCategory()
+    {
+        return $this->belongsTo(SubCategory::class);
     }
 }

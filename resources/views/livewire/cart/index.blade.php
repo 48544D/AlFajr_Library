@@ -17,7 +17,7 @@
                                 <td>
                                     <div class="d-flex align-items-center gap-2">
                                         <div class="cart-img">
-                                            <img src="{{ $item->options->image }}" alt="{{ $item->name }}">
+                                            <img src="{{ asset('storage/' . $item->options->image) }}" alt="{{ $item->name }}">
                                         </div>
                                         <div class="cart-info">
                                             <h4>{{ $item->name }}</h4>
