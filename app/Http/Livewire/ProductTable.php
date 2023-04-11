@@ -18,7 +18,7 @@ class ProductTable extends Component
 
     public function render()
     {
-        $products = $this->emited_products ?? Product::paginate($this->perPage);
+        $products = $this->emited_products ?? Product::filter(request(['search']))->paginate($this->perPage);
 
         return view('livewire.product-table', ['products' => $products]);
     }

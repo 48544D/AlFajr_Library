@@ -34,7 +34,7 @@
         </div>
     @else
         <div class="no-product">
-            <h2>No Products To Show</h2>
+            <h2>Aucun produit trouvé</h2>
         </div>
     @endunless
     
@@ -49,10 +49,5 @@
             </p>
         </div>
     @endif
-
-    {{-- loading --}}
-    {{-- <div wire:loading class="loading-container">
-        <div class="loading-spinner"></div>
-    </div> --}}
 </div>    
 

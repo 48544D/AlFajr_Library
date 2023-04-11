@@ -13,7 +13,6 @@
 
 /* Product card */
 .product-card {
-    /* min-height: 23vw; */
     height: max-content;
     max-height: 23vw;
     margin: 1vw;
