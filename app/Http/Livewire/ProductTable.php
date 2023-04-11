@@ -13,7 +13,7 @@ class ProductTable extends Component
     protected $paginationTheme = 'bootstrap';
     protected $listeners = ['reloadProducts'];
 
-    public $perPage = 8;
+    public $perPage = 28;
     protected $emited_products;
 
     public function render()

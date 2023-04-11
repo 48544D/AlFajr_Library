@@ -13,8 +13,7 @@
 
 /* Product card */
 .product-card {
-    height: 25vw;
-    /* margin: 1vw; */
+    height: max-content;
     padding: 1vw;
     width: 18vw;
     border: 1px solid #ccc;
@@ -63,23 +62,26 @@
 
 .product-name a {
     color: #000;
+    font-size: 1.1vw;
+    font-weight: 400;
     text-decoration: none;
-    /* 2 lines max */
+    /* 1 lines max */
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    
+    transition: color 0.2s ease-in-out;
 }
 
 .product-name a:hover {
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    color: var(--hover-text-color);
 }
 
 .product-price {
-    font-size: 1vw;
+    font-size: 1.3vw;
     font-weight: bold;
-    color: var(--primary-button);
+    color: var(--primary-text-color);
 }
 
 /* product button */

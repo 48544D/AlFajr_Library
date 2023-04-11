@@ -13,7 +13,7 @@
                                 <a href="products/{{$product->id}}">{{ $product->name }}</a>
                             </div>
                             <div class="product-price">
-                                {{ $product->price }} DH
+                               Prix : <span>{{ $product->price }} DH</span>
                             </div>
                         </div>
                         

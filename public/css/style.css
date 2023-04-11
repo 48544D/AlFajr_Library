@@ -1,8 +1,11 @@
 :root {
-    --primary-button : #2ecc71;
-    --hover-button: #27ae60;
-    --disabled-button: #74d79d;
-    --navbar-hover: #c52510;
+    --primary-button : #2556ab;
+    --hover-button: #214a93;
+    --disabled-button: #6a8ecd;
+    --primary-text-color: #000;
+    --secondary-text-color: #555;
+    --hover-text-color: #e1a626;
+    --navbar-hover: #e0b861;
 }
 
 main {
