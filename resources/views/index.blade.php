@@ -26,8 +26,11 @@
     <x-navbar/>
     <main>
         @yield('content')
+        <x-footer/>
     </main>
 
+
+    {{-- livewire --}}
     @livewireScripts
 </body>
 </html>

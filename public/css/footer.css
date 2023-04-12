@@ -1,0 +1,137 @@
+footer {
+    /* background-color: var(--background-color); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    height: 100%;
+}
+
+/* left side  */
+
+footer .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5vw;
+}
+
+footer .left .logo {
+    width: 20vw;
+}
+
+footer .left .logo img {
+    width: 100%;
+    height: 100%;
+}
+
+footer .left .info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+footer .left .info p {
+    font-size: 1.8vw;
+}
+
+footer .left .social {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 1.7vw;
+    padding-left: 20px;
+}
+
+footer .left .social a {
+    display: flex;
+    gap: 10px;
+
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    transition: all .3s ease;
+}
+
+footer .left .social a:hover {
+    color: var(--hover-text-color);
+}
+
+footer .left .social a i {
+    width: 2.5vw;
+    font-size: 2.5vw;
+    margin: 0;
+}
+
+footer .left .social a .fa-facebook {
+    color: #3b5998;
+}
+
+footer .left .social a .fa-whatsapp {
+    color: #25d366;
+}
+
+footer .left .social a .fa-instagram {
+    background: -moz-linear-gradient(60deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    background: -webkit-linear-gradient(60deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    background: linear-gradient(60deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* line */
+.line {
+    width: 2px;
+    height: 80%;
+    background-color: #000;
+}
+
+/* right side  */
+footer .right {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    gap: 2vw;
+    height: 100%;
+}
+
+footer .right .map{
+    width: 600px;
+    height: 400px;
+}
+
+footer .right .map iframe {
+    width: 100%;
+    height: 100%;
+}
+
+footer .right .coords {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 1.5vw;
+}
+
+footer .right .coords p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+footer .right .horaire {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 1.5vw;
+}
+
+footer .right .horaire p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}

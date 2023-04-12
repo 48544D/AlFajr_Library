@@ -1,5 +1,5 @@
 .product-table {
-    height: 100%;
+    height: max-content;
 }
 
 /* Product container */
