@@ -1,3 +1,5 @@
+<x-carousel/>
+
 <div class="product-table">
     @unless (count($products) == 0)
         <div class="product-container">

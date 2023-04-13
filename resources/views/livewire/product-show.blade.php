@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <img src="{{ $product->image }}" alt="{{ $product->name }}" class="img-fluid">
+                <img src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}" class="img-fluid">
             </div>
             <div class="col-md-6">
                 <h1>{{ $product->name }}</h1>
@@ -14,7 +14,7 @@
                         </div>
                         
                 @else
-                    <form wire:submit.prevent="addToCart({{ $product->id }})" action="{{ route('cart.store')}}" method="post" class="product-quantity">
+                    <form wire:submit.prevent="addToCart({{ $product->id }})" action="" method="post" class="product-quantity">
                         @csrf
                         <button type="submit" class="product-button">Ajouter au panier</button>
                     </form>

@@ -28,8 +28,6 @@
 <body>
     <x-navbar/>
     <main>
-        
-        <x-carousel/>
         @yield('content')
         <x-footer/>
     </main>
