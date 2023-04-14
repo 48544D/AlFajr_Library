@@ -1,12 +1,9 @@
-<x-carousel/>
-
 <div class="product-table">
     @unless (count($products) == 0)
         <div class="product-container">
             @foreach ($products as $product)
                 <div class="product-card">
                     <div class="product-image">
-                        {{-- <img src="{{ $product->image }}" alt="Product Image" /> --}}
                         <img src="{{ asset('storage/'.$product->image) }}" alt="Product Image" />
                     </div>
                     <div class="product-details">
@@ -18,18 +15,20 @@
                                Prix : <span>{{ $product->price }} DH</span>
                             </div>
                         </div>
-                        
-                        @if (Cart::content()->where('id', $product->id)->first())
+                        @if (!$product->stock)
+                            <div class="product-quantity">
+                                <button class="product-button" disabled>Produit épuisé</button>
+                            </div>
+                        @elseif (Cart::content()->where('id', $product->id)->first())
                             <div class="product-quantity">
                                 <button class="product-button" disabled>Ajouté au panier</button>
                             </div>
                             
                         @else
-                            
-                        <form wire:submit.prevent="addToCart({{ $product->id }})" class="product-quantity">
-                            @csrf
-                            <button type="submit" class="product-button">Ajouter au panier</button>
-                        </form>
+                            <form wire:submit.prevent="addToCart({{ $product->id }})" class="product-quantity">
+                                @csrf
+                                <button type="submit" class="product-button">Ajouter au panier</button>
+                            </form>
                         @endif
                     </div>
                 </div>
@@ -45,12 +44,6 @@
         {{ $products->links() }}
     </div>
 
-    @if (session()->has('message'))
-        <div x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show" class="flash-message">
-            <p class="m-0">
-                {{session('message')}}
-            </p>
-        </div>
-    @endif
+    <x-flash-message/>
 </div>    
 

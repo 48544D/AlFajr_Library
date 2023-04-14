@@ -27,8 +27,6 @@ class ProductTable extends Component
     {
         $product = Product::findOrFail($product_id);
 
-        // dd($product->image);
-
         Cart::add([
             'id' => $product->id,
             'name' => $product->name,

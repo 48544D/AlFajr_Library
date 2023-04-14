@@ -9,6 +9,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 class ProductShow extends Component
 {
     public $product;
+    public $quantity = 1;
 
     public function render()
     {
@@ -19,16 +20,22 @@ class ProductShow extends Component
     {
         $product = Product::findOrFail($product_id);
 
-        Cart::add(
-            $product->id,
-            $product->name,
-            1,
-            $product->price
-        );
+        Cart::add([
+            'id' => $product->id,
+            'name' => $product->name,
+            'qty' => $this->quantity,
+            'price' => $product->price,
+            'weight' => 0,
+            'options' => [
+                'image' => $product->image,
+            ]
+        ]);
 
         $this->emit('cart_update');
 
-        return redirect()->route('home');
+        session()->flash('message', 'Produit ajouté au panier.');
+
+        // return redirect()->route('home');
     }
 
     public function mount(Product $product)

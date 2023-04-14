@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="{{ asset('css/product.css') }}">
+<link rel="stylesheet" href="{{ asset('css/flash-message.css') }}">
 
 @extends('index')
 

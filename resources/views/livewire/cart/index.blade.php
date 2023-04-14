@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="cart-container">
     <div class="row justify-content-between">
     @if(count($cartItems) > 0)
         <div class="col-md-8 table-container">
@@ -15,13 +15,13 @@
                     @foreach($cartItems as $item)
                             <tr>
                                 <td>
-                                    <div class="d-flex align-items-center gap-2">
+                                    <div class="d-flex align-items-center gap">
                                         <div class="cart-img">
                                             <img src="{{ asset('storage/' . $item->options->image) }}" alt="{{ $item->name }}">
                                         </div>
                                         <div class="cart-info">
                                             <h4>{{ $item->name }}</h4>
-                                            <p>Prix: {{ $item->price }} DH</p>
+                                            <p><span>Prix:</span> {{ $item->price }} DH</p>
                                         </div>
                                     </div>
                                 </td>

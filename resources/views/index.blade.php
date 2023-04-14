@@ -35,6 +35,5 @@
 
     {{-- livewire --}}
     @livewireScripts
-    {{-- <script src="{{ asset('js/carousel.js') }}"></script> --}}
 </body>
 </html>
