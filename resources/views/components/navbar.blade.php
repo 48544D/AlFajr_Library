@@ -59,7 +59,7 @@
                 <a href="">PROMOTIONS</a>
             </li>
             <li>
-                <a href="">MA LISTE</a>
+                <a href="{{ route('maliste.index') }}">MA LISTE</a>
             </li>
         </ul>
     </div>

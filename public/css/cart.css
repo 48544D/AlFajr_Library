@@ -1,7 +1,6 @@
 .cart-container {
     padding: 0 4vw;
-    margin-top: 10px;
-    
+    margin-bottom: 100px;
 }
 
 .gap {
@@ -15,7 +14,7 @@
 }
 
 .table {
-    height: 100%;
+    height: max-content;
 }
 
 .table-container::-webkit-scrollbar {

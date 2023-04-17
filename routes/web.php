@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\MalisteController;
 use App\Http\Controllers\ProductController;
 
 /*
@@ -33,4 +34,12 @@ Route::prefix('products')->controller(ProductController::class)->group(function 
 Route::prefix('cart')->controller(CartController::class)->group(function () {
     // get cart
     Route::get('/', 'index')->name('cart.index');
+});
+
+// route group for maliste
+Route::prefix('maliste')->controller(MalisteController::class)->group(function () {
+    // get maliste
+    Route::get('/', 'index')->name('maliste.index');
+    // store
+    Route::post('/', 'store')->name('maliste.store');
 });
