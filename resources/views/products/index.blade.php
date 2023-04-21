@@ -4,6 +4,9 @@
 @extends('index')
 
 @section('content')
-    <x-carousel/>
+    {{-- check if the url has key search --}}
+    @if (!request()->has('search'))
+        <x-carousel/>
+    @endif
     @livewire('product-table')
 @endsection

@@ -11,7 +11,8 @@
 
 main {
     position: absolute;
-    top: 10.5vw;
+    /* top: 10.5vw; */
+    top: var(--navbar-height);
     left: 0;
     width: 100%;
     height: calc(100% - 10.5vw);

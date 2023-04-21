@@ -1,10 +1,17 @@
 footer {
     /* background-color: var(--background-color); */
+    
+    padding: 20px 50px;
+    /* height: 100%; */
+    width: 100%;
+}
+
+footer .wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
     height: 100%;
+    width: 100%;
 }
 
 /* left side  */
@@ -29,7 +36,7 @@ footer .left .logo img {
 footer .left .info {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 2vw;
 }
 
 footer .left .info p {
@@ -39,14 +46,14 @@ footer .left .info p {
 footer .left .social {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: .5vw;
     font-size: 1.7vw;
-    padding-left: 20px;
+    padding-left: 2vw;
 }
 
 footer .left .social a {
     display: flex;
-    gap: 10px;
+    gap: 2vw;
 
     color: var(--secondary-text-color);
     text-decoration: none;
@@ -99,8 +106,8 @@ footer .right {
 }
 
 footer .right .map{
-    width: 600px;
-    height: 400px;
+    width: 40vw;
+    height: 30vw;
 }
 
 footer .right .map iframe {
@@ -111,7 +118,7 @@ footer .right .map iframe {
 footer .right .coords {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: .1vw;
     font-size: 1.5vw;
 }
 
@@ -119,13 +126,13 @@ footer .right .coords p {
     margin: 0;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 1.2vw;
 }
 
 footer .right .horaire {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: .1vw;
     font-size: 1.5vw;
 }
 
@@ -133,5 +140,5 @@ footer .right .horaire p {
     margin: 0;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: .5vw;
 }

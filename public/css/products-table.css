@@ -1,14 +1,16 @@
 .product-table {
     height: max-content;
+    width: 100%;
 }
 
 /* Product container */
 .product-container {
+    width: 100%;
     padding: 20px 10px;
     display: grid;
     grid-template-columns: repeat(4, minmax(0,1fr));
     gap: 1.5vw;
-    margin: 0 1rem;
+    justify-items: center;
 }
 
 /* Product card */
