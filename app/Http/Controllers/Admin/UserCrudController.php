@@ -41,9 +41,9 @@ class UserCrudController extends CrudController
     {
         CRUD::column('nom');
         CRUD::column('prenom');
-        CRUD::column('username');
-        CRUD::column('password');
+        CRUD::column('username')->label('Identifiant');
         CRUD::column('role');
+
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -64,10 +64,15 @@ class UserCrudController extends CrudController
 
         CRUD::field('nom');
         CRUD::field('prenom');
-        CRUD::field('username');
-        CRUD::field('password');
-        CRUD::field('role');
-
+        CRUD::field('username')->label('Identifiant');
+        //role field hidden and default value is personnel using addField method
+        CRUD::addField([
+            'name' => 'role',
+            'type' => 'hidden',
+            'value' => 'personnel'
+        ]);
+        CRUD::field('password')->label('Mot de passe');
+       
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

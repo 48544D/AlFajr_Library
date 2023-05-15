@@ -15,17 +15,24 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
         
-             $table->dropIfExists('name');
+            
+
+            $table->dropcolumn('name');
+            $table->dropcolumn('email');
+            $table->dropcolumn('email_verified_at');
             $table->string('nom')->after('id');
             $table->string('prenom')->after('nom');
-            $table->dropifExists('email');
-            $table->dropifExists('email_verified_at');
-            $table->enum('role', ['admin', 'personnel'])->default('admin')->after('prenom');
+            $table->enum('role', ['admin', 'personnel'])->default('personnel')->after('prenom');
             $table->string('username')->unique()->after('role');
-            $table->string('master_passwd')->after('password');
+            $table->string('master_passwd')->nullable()->after('username');
         });
     }
-
+    public function after($migrationName)
+    {
+        if ($migrationName === '2023_05_04_214621_update_stock_column_products.php') {
+            return true;
+        }
+    }
     /**
      * Reverse the migrations.
      *

@@ -18,6 +18,13 @@ return new class extends Migration
         });
     }
 
+    public function after($migrationName)
+    {
+        if ($migrationName === '2023_04_11_112114_update_products_table.php') {
+            return true;
+        }
+    }
+    
     /**
      * Reverse the migrations.
      *

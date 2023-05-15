@@ -19,7 +19,12 @@ return new class extends Migration
             $table->timestamp('created_at')->nullable();
         });
     }
-
+    public function after($migrationName)
+    {
+        if ($migrationName === '2014_10_12_000000_create_users_table.php') {
+            return true;
+        }
+    }
     /**
      * Reverse the migrations.
      *

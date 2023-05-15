@@ -23,6 +23,12 @@ return new class extends Migration
             $table->timestamp('failed_at')->useCurrent();
         });
     }
+    public function after($migrationName)
+    {
+        if ($migrationName === '2014_10_12_100000_create_password_resets_table.php') {
+            return true;
+        }
+    }
 
     /**
      * Reverse the migrations.

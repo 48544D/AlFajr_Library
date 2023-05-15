@@ -24,7 +24,12 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-
+    public function after($migrationName)
+    {
+        if ($migrationName === '2019_08_19_000000_create_failed_jobs_table.php') {
+            return true;
+        }
+    }
     /**
      * Reverse the migrations.
      *

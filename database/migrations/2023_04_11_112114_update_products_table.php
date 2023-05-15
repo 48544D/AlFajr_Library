@@ -21,7 +21,12 @@ return new class extends Migration
             $table->boolean('stock')->default(true)->change();
         });
     }
-
+    public function after($migrationName)
+    {
+        if ($migrationName === '2023_02_28_212649_create_products_table.php') {
+            return true;
+        }
+    }
     /**
      * Reverse the migrations.
      *

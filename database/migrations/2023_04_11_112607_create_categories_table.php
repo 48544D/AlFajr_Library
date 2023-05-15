@@ -19,6 +19,13 @@ return new class extends Migration
             $table->timestamps();
         });
     }
+    public function after($migrationName)
+    {
+        if ($migrationName === '2019_12_14_000001_create_personal_access_tokens_table.php') {
+            return true;
+        }
+    }
+    
 
     /**
      * Reverse the migrations.
