@@ -23,7 +23,7 @@ return new class extends Migration
     }
     public function after($migrationName)
     {
-        if ($migrationName === '2023_02_28_212649_create_products_table.php') {
+        if ($migrationName === '2023_04_11_112607_create_categories_table.php') {
             return true;
         }
     }
