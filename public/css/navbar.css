@@ -124,11 +124,19 @@ header {
     transition: all 0.3s ease;
 }
 
+.bottom-section ul li .category-name {
+    text-transform: uppercase;
+}
+
 .bottom-section ul li:hover > a {
     color: var(--navbar-hover);
 }
 
 .bottom-section .dropdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+    gap: 1vw;
+    justify-content: center;
     opacity: 0;
     visibility: hidden;
     position: absolute;
@@ -141,6 +149,10 @@ header {
     border-top: 1px solid #fff;
     transform: translateY(-5px);
     transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+}
+
+.bottom-section .dropdown li.subcategory {
+    width: fit-content;
 }
 
 .bottom-section .has-dropdown:hover .dropdown,

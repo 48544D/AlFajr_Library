@@ -26,7 +26,7 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body>
-    <x-navbar/>
+    @include('components/navbar')
     <main>
         @yield('content')
         <x-footer/>

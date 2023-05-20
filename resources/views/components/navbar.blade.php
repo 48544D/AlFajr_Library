@@ -31,15 +31,17 @@
             <li>
                 <a href="/"><i class="fa fa-home" aria-hidden="true"></i></a>
             </li>
-            <li class="has-dropdown">
-                <a href="">LIVRES</a>
-                <ul class="dropdown">
-                    <li><a href="#">livres 1</a></li>
-                    <li><a href="#">Sub-item 2</a></li>
-                    <li><a href="#">Sub-item 3</a></li>
-                </ul>
-            </li>
-            <li class="has-dropdown">
+            @foreach ($categories as $category)
+                <li class="has-dropdown">
+                    <a href="" class="category-name"> {{ $category->name }} </a>
+                    <ul class="dropdown">
+                        @foreach($category->subCategories as $subCategory)
+                            <li class="subcategory"><a href="">{{ $subCategory->name }}</a></li>
+                        @endforeach
+                    </ul>
+                </li>
+            @endforeach
+            {{-- <li class="has-dropdown">
                 <a href="">SCOLAIRE</a>
                 <ul class="dropdown">
                     <li><a href="#">Sub-item 1</a></li>
@@ -70,7 +72,7 @@
                     <li><a href="#">Sub-item 2</a></li>
                     <li><a href="#">Sub-item 3</a></li>
                 </ul>
-            </li>
+            </li> --}}
             <li>
                 <a href="{{ route('maliste.index') }}">MA LISTE</a>
             </li>
