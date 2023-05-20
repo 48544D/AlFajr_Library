@@ -15,18 +15,6 @@
                 </button>
             </form>
         </div>
-        <div class="user">
-            @if (Auth::check())
-                <a href="">
-                    <img src="{{ asset('images/user.png') }}" alt="user">
-                </a>
-            @else
-                <a href="">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                    <span>Connexion</span>
-                </a>
-            @endif
-        </div>
         <div class="cart">
             <a href="{{ route('cart.index') }}">
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -39,24 +27,49 @@
     </div>
     <hr>
     <div class="bottom-section">
-        <ul>
+        <ul class="ul-container">
             <li>
                 <a href="/"><i class="fa fa-home" aria-hidden="true"></i></a>
             </li>
-            <li>
+            <li class="has-dropdown">
                 <a href="">LIVRES</a>
+                <ul class="dropdown">
+                    <li><a href="#">livres 1</a></li>
+                    <li><a href="#">Sub-item 2</a></li>
+                    <li><a href="#">Sub-item 3</a></li>
+                </ul>
             </li>
-            <li>
+            <li class="has-dropdown">
                 <a href="">SCOLAIRE</a>
+                <ul class="dropdown">
+                    <li><a href="#">Sub-item 1</a></li>
+                    <li><a href="#">Sub-item 2</a></li>
+                    <li><a href="#">Sub-item 3</a></li>
+                </ul>
             </li>
-            <li>
+            <li class="has-dropdown">
                 <a href="">BUREAUTIQUE</a>
+                <ul class="dropdown">
+                    <li><a href="#">Sub-item 1</a></li>
+                    <li><a href="#">Sub-item 2</a></li>
+                    <li><a href="#">Sub-item 3</a></li>
+                </ul>
             </li>
-            <li>
+            <li class="has-dropdown">
                 <a href="">DESSIN</a>
+                <ul class="dropdown">
+                    <li><a href="#">Sub-item 1</a></li>
+                    <li><a href="#">Sub-item 2</a></li>
+                    <li><a href="#">Sub-item 3</a></li>
+                </ul>
             </li>
-            <li>
+            <li class="has-dropdown">
                 <a href="">PROMOTIONS</a>
+                <ul class="dropdown">
+                    <li><a href="#">Sub-item 1</a></li>
+                    <li><a href="#">Sub-item 2</a></li>
+                    <li><a href="#">Sub-item 3</a></li>
+                </ul>
             </li>
             <li>
                 <a href="{{ route('maliste.index') }}">MA LISTE</a>
