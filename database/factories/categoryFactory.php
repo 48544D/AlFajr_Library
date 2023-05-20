@@ -16,8 +16,28 @@ class categoryFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'name' => 'Livres'
+        static $rowIndex = 0;
+        
+        $categories = [
+            [
+                'name' => 'Livres',
+            ],
+            [
+                'name' => 'Fournitures scolaires',
+            ],
+            // Add more category data as needed
         ];
+        
+        $category = $categories[$rowIndex];
+        $rowIndex = ($rowIndex + 1) % count($categories);
+        
+        return $category;
+        /*return [
+            //insert multiple rows
+            'name' => 'Livres',
+
+            //add another row
+
+        ];*/
     }
 }

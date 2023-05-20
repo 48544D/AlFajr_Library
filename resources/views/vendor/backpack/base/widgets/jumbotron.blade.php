@@ -9,8 +9,9 @@
 	<div class="jumbotron mb-2">
 
 	  @if (isset($widget['heading']))
-	  <h1 class="display-3">{!! $widget['heading'] !!}</h1>
+	  <p class="display-3" style="font-size: 2.8rem;">{!! $widget['heading'] !!}</p>
 	  @endif
+	  
 
 	  @if (isset($widget['content']))
 	  <p>{!! $widget['content'] !!}</p>
