@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row product-container">
             <div class="col-md-6 left">
-                <img src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}" class="img-fluid">
+                <img src="{{ asset('storage/'.$product->image) }}" alt="Image indisponible" class="img-fluid">
             </div>
             <div class="col-md-6 right">
                 <h1>{{ $product->name }}</h1>

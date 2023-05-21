@@ -4,7 +4,7 @@
             @foreach ($products as $product)
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="{{ asset('storage'.$product->image) }}" alt="Product Image" />
+                        <img src="{{ $product->image ? asset('storage'.$product->image) : asset('storage/images/no-image.png')}}" alt="Image indisponible" />
                     </div>
                     <div class="product-details">
                         <div class="product-info">
@@ -15,7 +15,7 @@
                                Prix : <span>{{ $product->price }} DH</span>
                             </div>
                         </div>
-                        @if (!$product->stock)
+                        @if (!$product->estDisponible)
                             <div class="product-quantity">
                                 <button class="product-button" disabled>Produit épuisé</button>
                             </div>
