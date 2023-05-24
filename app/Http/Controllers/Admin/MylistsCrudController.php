@@ -29,6 +29,8 @@ class MylistsCrudController extends CrudController
         CRUD::setModel(\App\Models\Mylists::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/mylists');
         CRUD::setEntityNameStrings('mylists', 'mylists');
+        //set custom view
+       // $this->crud->setListView('crud.list_mylists');
     }
 
     /**

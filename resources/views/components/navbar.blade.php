@@ -36,7 +36,7 @@
                     <a href="" class="category-name"> {{ $category->name }} </a>
                     <ul class="dropdown">
                         @foreach($category->subCategories as $subCategory)
-                            <li class="subcategory"><a href="">{{ $subCategory->name }}</a></li>
+                            <li class="subcategory"><a href="/subcategories/{{ $subCategory->id }}">{{ $subCategory->name }}</a></li>
                         @endforeach
                     </ul>
                 </li>
