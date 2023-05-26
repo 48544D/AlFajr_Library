@@ -66,10 +66,27 @@ class PromotionsCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
+        
         CRUD::setValidation(PromotionsRequest::class);
 
         CRUD::field('prix_prom');
         CRUD::column('product_id')->label('Produit');
+        CRUD::addColumn([
+            'label' => "Produit",
+            'name' => 'product_id',
+            'entity' => 'product', 
+            'attribute' => 'name',
+            'model' => "App\Models\Product",
+        ]);
+        //add a field to the product_id column
+        $this->crud->addField([
+            'label' => "Produit",
+            'name' => 'product_id', // the db column for the foreign key
+            'entity' => 'product', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'model' => "App\Models\Product", // foreign key model
+          
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

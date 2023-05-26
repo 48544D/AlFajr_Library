@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\MylistsRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
 
 /**
  * Class MylistsCrudController
@@ -24,40 +25,78 @@ class MylistsCrudController extends CrudController
      * 
      * @return void
      */
+    //Setup a new route
+
     public function setup()
     {
         CRUD::setModel(\App\Models\Mylists::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/mylists');
         CRUD::setEntityNameStrings('mylists', 'mylists');
-        //set custom view
-       // $this->crud->setListView('crud.list_mylists');
+        $this->crud->addButtonFromView('line', 'download', 'download', 'beginning');
+       // $this->crud->setView('crud.list_mylists');
+       
+    
     }
-
+   
     /**
      * Define what happens when the List operation is loaded.
      * 
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
-    protected function setupListOperation()
+
+   
+    public function download($id)
     {
+       if($id){
+        $mylist = \App\Models\Mylists::find($id);
+        $file_path =$mylist->Emplac_fich;
+        return response()->download('C:\Users\Admin\Desktop\AlFajr_Library\public\uploads\mylists\test.png');
+       }
+       else{
+        return redirect()->back();
+       }
+    }
+ 
+    protected function setupListOperation()
+    {   
         CRUD::column('Nom_doc');
         CRUD::column('Emplac_fich');
         CRUD::column('Etablissement');
         CRUD::column('Niveau');
         CRUD::column('client_id');
+        CRUD::addColumn([
+            'label' => "Prenom du client",
+            'name' => 'client_id', // the db column for the foreign key
+            'entity' => 'client', // the method that defines the relationship in your Model
+            'attribute' => 'prenom', 
+            'model' => "App\Models\Clients", // foreign key model
+           
+        ]);
         CRUD::column('created_at');
         CRUD::column('updated_at');
         //Display an image
         CRUD::addColumn([
-            'name' => 'Emplac_fich',
-            'name' => 'Nom_doc',
-            'type' => 'image',  
-            'height' => '100px',
-            'width' => '100px',
-            'upload' => true,
-            'disk' => 'local',
+            'label'=>'Image',
+            'name'=>'Emplac_fich',
+            'type'=>'image',
+            'upload'=>true,
+            'path'=>"public/uploads/mylists",
         ]);
+
+        //display the name of the client
+        CRUD::addColumn([
+            'label' => "Nom du client",
+            'name' => 'client_id', // the db column for the foreign key
+            'entity' => 'client', // the method that defines the relationship in your Model
+            'attribute' => 'name', 
+            'model' => "App\Models\Clients", // foreign key model
+           
+        ]);
+        
+        
+       // $this->crud->addButtonFromView('Emplac_fich', 'download', 'download', 'beginning');
+
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -83,7 +122,6 @@ class MylistsCrudController extends CrudController
         CRUD::field('client_id');
         CRUD::addField([
             'name' => 'Emplac_fich',
-            'name' => 'Nom_doc',
             'type' => 'upload',
             'upload' => true,
             'disk' => 'local',
