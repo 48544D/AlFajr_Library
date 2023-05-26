@@ -33,7 +33,10 @@ class Product extends Model
     {
         return $this->belongsTo(SubCategory::class);
     }
-    
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
     public static function boot()
     {
         parent::boot();
