@@ -18,9 +18,9 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'nom' => 'elysm',
-            'prenom'=>'oussama',
-            'username'=>'oussamaym',
+            'nom' => 'gh',
+            'prenom'=>'wiss',
+            'username'=>'wiss',
             'role'=>'admin',
             'password'=>bcrypt('mnbvcxz'),
             'remember_token' => Str::random(10),

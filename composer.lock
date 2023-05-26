@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "deabd456539a7d95cfa4e539e2d303a2",
+    "content-hash": "078cb16e32760a83519bf6a4e82b4d26",
     "packages": [
         {
             "name": "backpack/crud",
-            "version": "5.5.7",
+            "version": "5.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "6a1b72e657744ba30c9cc6dc94eec5164db0d3cb"
+                "reference": "5316015407af80934be4f66c65176447cce5ef85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/6a1b72e657744ba30c9cc6dc94eec5164db0d3cb",
-                "reference": "6a1b72e657744ba30c9cc6dc94eec5164db0d3cb",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/5316015407af80934be4f66c65176447cce5ef85",
+                "reference": "5316015407af80934be4f66c65176447cce5ef85",
                 "shasum": ""
             },
             "require": {
@@ -95,9 +95,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/5.5.7"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/5.6.0"
             },
-            "time": "2023-04-13T13:23:13+00:00"
+            "time": "2023-04-27T13:43:06+00:00"
         },
         {
             "name": "brick/math",
@@ -9314,5 +9314,5 @@
         "php": "^8.0.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

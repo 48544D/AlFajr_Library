@@ -7,3 +7,5 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('user') }}"><i class="nav-icon la la-question"></i> Users</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('order') }}"><i class="nav-icon la la-question"></i> Orders</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('client') }}"><i class="nav-icon la la-question"></i> Clients</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('promotions') }}"><i class="nav-icon la la-question"></i> Promotions</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('mylists') }}"><i class="nav-icon la la-question"></i> Mylists</a></li>

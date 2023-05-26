@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MalisteController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SubcategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,4 +43,10 @@ Route::prefix('maliste')->controller(MalisteController::class)->group(function (
     Route::get('/', 'index')->name('maliste.index');
     // store
     Route::post('/', 'store')->name('maliste.store');
+});
+
+// route group for subcategories
+Route::prefix('subcategories')->controller(SubcategoryController::class)->group(function () {
+    // get subcategory
+    Route::get('/{subCategory}', 'show')->name('subcategories.show');
 });
