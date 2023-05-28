@@ -34,6 +34,12 @@ class Index extends Component
     {
         $product = Product::findOrFail($product_id);
 
+        // checking if this product is in promotion table
+        $promotion = $product->promotion()->first();
+        if ($promotion) {
+            $product->price = $promotion->prix_prom;
+        }
+
         Cart::add([
             'id' => $product->id,
             'name' => $product->name,
