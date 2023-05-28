@@ -88,6 +88,19 @@
     color: var(--primary-text-color);
 }
 
+.product-price span {
+    font-weight: 400;
+}
+
+.product-price .product-prom {
+    font-weight: bold;
+    color: var(--promotion-text-color);
+}
+
+.product-price .line-through {
+    text-decoration: line-through;
+}
+
 /* product button */
 .product-button {
     padding: .4vw;

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MalisteController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\SubcategoryController;
 
 /*
@@ -49,4 +50,10 @@ Route::prefix('maliste')->controller(MalisteController::class)->group(function (
 Route::prefix('subcategories')->controller(SubcategoryController::class)->group(function () {
     // get subcategory
     Route::get('/{subCategory}', 'show')->name('subcategories.show');
+});
+
+// route group for promotions
+Route::prefix('promotions')->controller(PromotionController::class)->group(function () {
+    // promotion index
+    Route::get('/', 'index')->name('promotions.index');
 });
