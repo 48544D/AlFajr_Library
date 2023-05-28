@@ -65,6 +65,14 @@
     font-weight: 600;
 }
 
+.right .details .price .line-through {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.right .details .price .product-prom {
+    color: #cc0000;
+}
 
 
 .btn {

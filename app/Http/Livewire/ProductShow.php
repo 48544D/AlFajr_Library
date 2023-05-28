@@ -13,7 +13,11 @@ class ProductShow extends Component
 
     public function render()
     {
-        return view('livewire.product-show');
+        // checking if this product is in promotion table
+        $promotion = $this->product->promotion()->first();
+        return view('livewire.product-show', [
+            'promotion' => $promotion
+        ]);
     }
 
     public function addToCart($product_id)

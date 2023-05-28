@@ -7,8 +7,17 @@
             <div class="col-md-6 right">
                 <h1>{{ $product->name }}</h1>
                 <div class="details">
-                    <p><span>Reference:</span> {{ $product->reference }}</p>
-                    <p class="price"><span>Prix:</span> {{ $product->price }} Dh</p>
+                    <p>
+                        <span>Reference:</span> {{ $product->reference }}
+                    </p>
+                    <p class="price">
+                        <span>Prix:</span>
+                        @if ($product->promotion)
+                            <span class="line-through">{{ $product->price }} DH</span> ~ <span class="product-prom"> {{ $product->promotion->prix_prom }} DH</span>
+                        @else
+                            {{ $product->price }} DH
+                        @endif
+                    </p>
                     @if (!$product->estDisponible)
                         <div class="product-quantity">
                             <button class="product-button" disabled>Produit épuisé</button>
