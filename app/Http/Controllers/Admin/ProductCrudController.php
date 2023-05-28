@@ -52,14 +52,18 @@ class ProductCrudController extends CrudController
         ]);
         CRUD::column('sub_category_id')->label('Sous catégorie');
         CRUD::column('stock')->label('Disponible');
-
+        $this->crud->addButtonFromView('line', 'promo', 'promotion', 'end');
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
          * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
          */
     }
-
+    //redirect from product to promotion
+    public function promotion($id)
+    {
+        return redirect('admin/promotions/create?product_id='.$id);
+    }
     /**
      * Define what happens when the Create operation is loaded.
      * 
@@ -104,6 +108,7 @@ class ProductCrudController extends CrudController
          * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
          */
     }
+ 
 
     /**
      * Define what happens when the Update operation is loaded.

@@ -9,6 +9,7 @@
     <div class="card-body row">
       @include('crud::inc.show_fields', ['fields' => $crud->fields()])
     </div>
+    
   </div>
 @endif
 

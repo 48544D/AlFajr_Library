@@ -24,6 +24,10 @@ Route::group([
     Route::crud('promotions', 'PromotionsCrudController');
     Route::crud('mylists', 'MylistsCrudController');
     Route::get('mylists/{id}/download', 'MylistsCrudController@download');
+    //promotion from products to promotions
+    Route::get('product/{id}/promotion', 'ProductCrudController@promotion');
+    //route for CreateWithId
+   // Route::get('promotions/CreateWithId', 'PromotionsCrudController@CreateWithId');
     //download route
     //Route::get('download/{id}', 'MylistsCrudController@download')->name('download');
     //Route::get('/mylists/download/{id}', 'MylistsCrudController@download')->name('download');
