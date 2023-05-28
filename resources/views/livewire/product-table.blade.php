@@ -12,7 +12,11 @@
                                 <a href="products/{{$product->id}}">{{ $product->name }}</a>
                             </div>
                             <div class="product-price">
-                               Prix : <span>{{ $product->price }} DH</span>
+                                @if ($product->promotion)
+                                    Prix : <span class="line-through">{{ $product->price }} DH</span> ~ <span class="product-prom"> {{ $product->promotion->prix_prom }} DH</span>
+                                @else
+                                    Prix : <span>{{ $product->price }} DH</span>
+                                @endif
                             </div>
                         </div>
                         @if (!$product->estDisponible)
