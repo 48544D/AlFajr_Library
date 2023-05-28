@@ -7,6 +7,7 @@
     {{-- check if the url has key search --}}
     @if (!request()->has('search'))
         <x-carousel/>
+        <h1 class="text-center">Produits</h1>
     @endif
     @livewire('product-table')
 @endsection
