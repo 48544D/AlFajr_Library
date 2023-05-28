@@ -37,19 +37,30 @@ class Index extends Component
         // checking if this product is in promotion table
         $promotion = $product->promotion()->first();
         if ($promotion) {
-            $product->price = $promotion->prix_prom;
+            Cart::add([
+                'id' => $product->id,
+                'name' => $product->name,
+                'qty' => 1,
+                'price' => $promotion->prix_prom,
+                'weight' => 0,
+                'options' => [
+                    'image' => $product->image,
+                    'original_price' => $product->price,
+                    'promotion' => 'true'
+                ]
+            ]);
+        } else {
+            Cart::add([
+                'id' => $product->id,
+                'name' => $product->name,
+                'qty' => 1,
+                'price' => $product->price,
+                'weight' => 0,
+                'options' => [
+                    'image' => $product->image,
+                ]
+            ]);
         }
-
-        Cart::add([
-            'id' => $product->id,
-            'name' => $product->name,
-            'qty' => 1,
-            'price' => $product->price,
-            'weight' => 0,
-            'options' => [
-                'image' => $product->image,
-            ]
-        ]);
 
         $this->emit('cart_update');
 

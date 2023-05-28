@@ -98,6 +98,7 @@
 }
 
 .product-price .line-through {
+    color: var(--line-through-color);
     text-decoration: line-through;
 }
 

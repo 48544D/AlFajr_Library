@@ -72,6 +72,16 @@
     font-weight: 600;
 }
 
+.cart-info .product-prom {
+    font-weight: bold;
+    color: var(--promotion-text-color);
+}
+
+.cart-info .line-through {
+    color: var(--line-through-color);
+    text-decoration: line-through;
+}
+
 .cart-info p {
     font-size: 24px;
     margin: 0;

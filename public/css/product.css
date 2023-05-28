@@ -67,7 +67,7 @@
 
 .right .details .price .line-through {
     text-decoration: line-through;
-    color: #999;
+    color: var(--line-through-color);
 }
 
 .right .details .price .product-prom {
