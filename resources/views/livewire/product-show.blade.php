@@ -9,7 +9,7 @@
                 <div class="details">
                     <p><span>Reference:</span> {{ $product->reference }}</p>
                     <p class="price"><span>Prix:</span> {{ $product->price }} Dh</p>
-                    @if (!$product->stock)
+                    @if (!$product->estDisponible)
                         <div class="product-quantity">
                             <button class="product-button" disabled>Produit épuisé</button>
                         </div>
