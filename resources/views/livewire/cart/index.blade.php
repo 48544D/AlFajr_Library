@@ -60,7 +60,7 @@
                         <p>Quantité Totale: {{ $totalQuantity }}</p>
                         <p>Prix Total: {{ $totalPrice }} DH</p>
                     </div>
-                    <a href="#" class="btn btn-success">Commander</a>
+                    <a href="{{ route('commande.index') }}" class="btn btn-success">Commander</a>
                     <button class="btn btn-danger" wire:click="clearCart">Vider le panier</button>
                 </div>
             </div>
