@@ -24,10 +24,10 @@ class Mylists extends Model
     // clients attributes
     protected $fillable = [
         'client_id',
-        'product_id',
-        'quantity',
-        'total',
-        'estTraite',
+        'Nom_doc',
+        'Emplac_fich',
+        'Etablissement',
+        'Niveau',
     ];
     // protected $hidden = [];
     // protected $dates = [];
