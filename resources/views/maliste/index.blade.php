@@ -29,7 +29,8 @@
                     <div class="top-left">
                         <div class="form-field">
                             <input type="text" name="nom" placeholder="Nom"
-                            value="{{old('nom')}}" >
+                            value="{{old('nom')}}"
+                            required >
                             @error('nom')
                                 <div class="text-danger">
                                     {{$message}}
@@ -38,7 +39,8 @@
                         </div>
                         <div class="form-field">
                             <input type="text" name="prenom" placeholder="Prenom"
-                            value="{{old('prenom')}}" >
+                            value="{{old('prenom')}}"
+                            required >
                             @error('prenom')
                                 <div class="text-danger">
                                     {{$message}}
@@ -47,7 +49,8 @@
                         </div>
                         <div class="form-field">
                             <input type="text" name="email" placeholder="Email"
-                            value="{{old('email')}}" >
+                            value="{{old('email')}}"
+                            required >
                             @error('email')
                                 <div class="text-danger">
                                     {{$message}}
@@ -56,7 +59,8 @@
                         </div>
                         <div class="form-field">
                             <input type="text" name="tele" placeholder="Telephone"
-                            value="{{old('tele')}}" >
+                            value="{{old('tele')}}"
+                            required >
                             @error('tele')
                                 <div class="text-danger">
                                     {{$message}}
@@ -65,7 +69,8 @@
                         </div>
                         <div class="form-field">
                             <input type="text" name="etablissement" placeholder="Etablissement"
-                            value="{{old('etablissement')}}" >
+                            value="{{old('etablissement')}}"
+                            required >
                             @error('etablissement')
                                 <div class="text-danger">
                                     {{$message}}
@@ -74,7 +79,8 @@
                         </div>
                         <div class="form-field">
                             <input type="text" name="niveau" placeholder="Niveau"
-                            value="{{old('niveau')}}" >
+                            value="{{old('niveau')}}"
+                            required >
                             @error('niveau')
                                 <div class="text-danger">
                                     {{$message}}
@@ -86,6 +92,7 @@
                         <input type="file" name="doc" id="doc"
                         accept=".jpg, .png, .pdf, .doc, .docx"
                         value="{{old('doc')}}"
+                        required
                         >
                         @error('doc')
                             <div class="text-danger">
