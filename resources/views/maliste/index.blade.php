@@ -23,17 +23,76 @@
 
         <div class="maliste-container">
             <h1>ma liste</h1>
-            <form action="{{ route('maliste.store') }}">
+            <form method="POST" action="{{ route('maliste.store') }}" enctype="multipart/form-data">
+                @csrf
                 <div class="top">
                     <div class="top-left">
-                        <input type="text" name="nom" placeholder="Nom">
-                        <input type="text" name="tele" placeholder="Telephone">
-                        <input type="text" name="etablissement" placeholder="Etablissement">
-                        <input type="text" name="niveau" placeholder="Niveau">
+                        <div class="form-field">
+                            <input type="text" name="nom" placeholder="Nom"
+                            value="{{old('nom')}}" >
+                            @error('nom')
+                                <div class="text-danger">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-field">
+                            <input type="text" name="prenom" placeholder="Prenom"
+                            value="{{old('prenom')}}" >
+                            @error('prenom')
+                                <div class="text-danger">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-field">
+                            <input type="text" name="email" placeholder="Email"
+                            value="{{old('email')}}" >
+                            @error('email')
+                                <div class="text-danger">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-field">
+                            <input type="text" name="tele" placeholder="Telephone"
+                            value="{{old('tele')}}" >
+                            @error('tele')
+                                <div class="text-danger">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-field">
+                            <input type="text" name="etablissement" placeholder="Etablissement"
+                            value="{{old('etablissement')}}" >
+                            @error('etablissement')
+                                <div class="text-danger">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-field">
+                            <input type="text" name="niveau" placeholder="Niveau"
+                            value="{{old('niveau')}}" >
+                            @error('niveau')
+                                <div class="text-danger">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                        </div>
                     </div>
-                    <input type="file" name="doc" id="doc"
+                    <div class="form-field">
+                        <input type="file" name="doc" id="doc"
                         accept=".jpg, .png, .pdf, .doc, .docx"
-                    >
+                        value="{{old('doc')}}"
+                        >
+                        @error('doc')
+                            <div class="text-danger">
+                                {{$message}}
+                            </div>
+                        @enderror
+                    </div>
                 </div>
                 <input type="submit" value="déposer">
             </form>
