@@ -24,6 +24,9 @@
 
     {{-- alpinejs --}}
     <script src="//unpkg.com/alpinejs" defer></script>
+
+    {{-- app scripts --}}
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body>
     @include('components/navbar')
@@ -35,8 +38,5 @@
 
     {{-- livewire --}}
     @livewireScripts
-
-    {{-- app scripts --}}
-    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

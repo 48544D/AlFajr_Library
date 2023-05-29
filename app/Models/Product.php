@@ -33,7 +33,17 @@ class Product extends Model
     {
         return $this->belongsTo(SubCategory::class);
     }
-    
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function promotion()
+    {
+        return $this->hasOne(Promotions::class);
+    }
+
     public static function boot()
     {
         parent::boot();
@@ -41,7 +51,8 @@ class Product extends Model
             \Storage::disk('public')->delete($obj->image);
         });
     }
-public function setImageAttribute($value)
+
+    public function setImageAttribute($value)
     {
         $attribute_name = "image";
         $disk = "public";

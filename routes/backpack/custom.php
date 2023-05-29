@@ -20,6 +20,7 @@ Route::group([
     Route::crud('sub-category', 'SubCategoryCrudController');
     Route::crud('product', 'ProductCrudController');
     Route::crud('user', 'UserCrudController');
+    Route::crud('order', 'OrderCrudController');
     Route::crud('clients', 'ClientsCrudController');
     Route::crud('promotions', 'PromotionsCrudController');
     Route::crud('mylists', 'MylistsCrudController');

@@ -41,38 +41,9 @@
                     </ul>
                 </li>
             @endforeach
-            {{-- <li class="has-dropdown">
-                <a href="">SCOLAIRE</a>
-                <ul class="dropdown">
-                    <li><a href="#">Sub-item 1</a></li>
-                    <li><a href="#">Sub-item 2</a></li>
-                    <li><a href="#">Sub-item 3</a></li>
-                </ul>
+            <li>
+                <a href="{{ route('promotions.index') }}">PROMOTIONS</a>
             </li>
-            <li class="has-dropdown">
-                <a href="">BUREAUTIQUE</a>
-                <ul class="dropdown">
-                    <li><a href="#">Sub-item 1</a></li>
-                    <li><a href="#">Sub-item 2</a></li>
-                    <li><a href="#">Sub-item 3</a></li>
-                </ul>
-            </li>
-            <li class="has-dropdown">
-                <a href="">DESSIN</a>
-                <ul class="dropdown">
-                    <li><a href="#">Sub-item 1</a></li>
-                    <li><a href="#">Sub-item 2</a></li>
-                    <li><a href="#">Sub-item 3</a></li>
-                </ul>
-            </li>
-            <li class="has-dropdown">
-                <a href="">PROMOTIONS</a>
-                <ul class="dropdown">
-                    <li><a href="#">Sub-item 1</a></li>
-                    <li><a href="#">Sub-item 2</a></li>
-                    <li><a href="#">Sub-item 3</a></li>
-                </ul>
-            </li> --}}
             <li>
                 <a href="{{ route('maliste.index') }}">MA LISTE</a>
             </li>

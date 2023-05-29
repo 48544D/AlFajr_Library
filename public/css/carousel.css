@@ -13,5 +13,5 @@
 
 .carousel-item img {
     height: 580px;
-    object-fit: cover;
+    object-fit: contain;
 }
