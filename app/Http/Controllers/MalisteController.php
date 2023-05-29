@@ -21,7 +21,7 @@ class MalisteController extends Controller
             'email' => 'required|email',
             'tele' => 'required|numeric',
             'etablissement' => 'required',
-            'niveau' => 'required|numeric',
+            'niveau' => 'required',
             'doc' => 'required|mimes:pdf,jpg,png,doc,docx',
         ]);
         // dd($request->all());
