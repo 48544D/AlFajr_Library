@@ -1,6 +1,7 @@
-const navbarHeigth = document.querySelector('header').offsetHeight;
+let navbarHeigth = document.querySelector('header').offsetHeight;
 
-// console.log(navbarHeigth);
+// convert navbarheight to vw 
+navbarHeigth = (navbarHeigth / window.innerWidth) * 100;
 
-
-document.documentElement.style.setProperty('--navbar-height', `${navbarHeigth + 1}px`);
+// setting variable --navbar-height to navbarheight
+document.documentElement.style.setProperty('--navbar-height', `${navbarHeigth}vw`);

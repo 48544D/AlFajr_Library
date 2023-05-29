@@ -7,13 +7,13 @@
 }
 
 .instructions h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
+    font-size: 3vw;
+    margin-bottom: 1vw;
     text-transform: capitalize;
 }
 
 .instructions-main p {
-    font-size: 1.5rem;
+    font-size: 1.2vw;
     margin: 0;
     /* margin-bottom: 1rem; */
 }
@@ -23,20 +23,20 @@
 }
 
 .instructions-main li {
-    font-size: 1.5rem;
+    font-size: 1.2vw;
 
 }
 
 .alert p {
-    font-size: 1.5rem;
+    font-size: 1.3vw;
     font-weight: 600;   
     margin: 0;
 }
 
 .instructions h2 {
     color: #f00;
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 1.5vw;
+    margin-bottom: 1vw;
     text-transform: capitalize;
 }
 
@@ -47,16 +47,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4rem;
-    padding: 1rem;
+    gap: 1.2vw;
+    padding: 1vw 0 0 0;
     border-radius: 30px;
-    width: 80%;
+    width: 65%;
     margin: 20vh auto;
     box-shadow: #1772c1 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px, #fbc606 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px, #b5e041 20px -20px, rgb(255, 255, 255) 30px -30px 0px -3px, #fd6500 30px -30px, rgb(255, 255, 255) 40px -40px 0px -3px, #010000 40px -40px;}
 
 .maliste-container h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 2vw;
     text-transform: uppercase;
     text-decoration: underline;
 }
@@ -66,7 +65,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4rem;
+    gap: 1vw;
     width: 100%;
 }
 
@@ -74,7 +73,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     width: 100%;
 }
 
@@ -83,18 +82,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 35%;
     gap: 1rem;
 }
 
 .maliste-container form .top .top-left input {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
+    width: 100%;
     padding: 0.5rem;
     border: 1px solid #000;
     border-radius: 10px;
 }
 
 .maliste-container form .top input[type="file"] {
-    font-size: 1.5vw;
+    font-size: 1.1vw;
     padding: 0.5rem;
     border: 1px solid #000;
     border-radius: 10px;
@@ -104,12 +105,11 @@
 
 .maliste-container form input[type="submit"] {
     font-size: 1.5vw;
-    padding: 0.5rem;
+    padding: 0.2rem;
     border: 1px solid #000;
     border-radius: 10px;
     background-color: var(--primary-button);
     color: #fff;
-    font-size: 1.7rem;
     cursor: pointer;
-    width: 40%;
+    width: 25%;
 }

@@ -27,6 +27,8 @@
                 <div class="top">
                     <div class="top-left">
                         <input type="text" name="nom" placeholder="Nom">
+                        <input type="text" name="prenom" placeholder="Prenom">
+                        <input type="text" name="email" placeholder="Email">
                         <input type="text" name="tele" placeholder="Telephone">
                         <input type="text" name="etablissement" placeholder="Etablissement">
                         <input type="text" name="niveau" placeholder="Niveau">
