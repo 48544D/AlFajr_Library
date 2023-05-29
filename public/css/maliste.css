@@ -86,6 +86,10 @@
     gap: 1rem;
 }
 
+.maliste-container form .top .top-left .form-field {
+    width: 100%;
+}
+
 .maliste-container form .top .top-left input {
     font-size: 1.2vw;
     width: 100%;
