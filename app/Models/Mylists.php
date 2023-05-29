@@ -21,7 +21,14 @@ class Mylists extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    // protected $fillable = [];
+    // clients attributes
+    protected $fillable = [
+        'client_id',
+        'product_id',
+        'quantity',
+        'total',
+        'estTraite',
+    ];
     // protected $hidden = [];
     // protected $dates = [];
 

@@ -52,8 +52,8 @@ class MylistsCrudController extends CrudController
        if($id){
         $mylist = \App\Models\Mylists::find($id);
         $file_path =$mylist->Emplac_fich;
-
-        return response()->download('C:\Users\Admin\Desktop\AlFajr_Library\public\uploads\mylists\test.png');
+        $file_path = str_replace('/', '\\', $file_path); 
+        return response()->download(app_path('\..\public\storage\\'.$file_path));
        }
        else{
         return redirect()->back();
@@ -62,28 +62,28 @@ class MylistsCrudController extends CrudController
 
     protected function setupListOperation()
     {   
-        CRUD::column('Nom_doc');
-        CRUD::column('Emplac_fich');
-        CRUD::column('Etablissement');
+       // CRUD::column('Nom_doc');
+       // CRUD::column('Emplac_fich');
+        // CRUD::column('Etablissement');
         CRUD::column('Niveau');
         CRUD::column('client_id');
         CRUD::addColumn([
             'label' => "Prenom du client",
-            'name' => 'client_id', // the db column for the foreign key
+            'name' => 'Nom_id', // the db column for the foreign key
             'entity' => 'client', // the method that defines the relationship in your Model
             'attribute' => 'prenom', 
             'model' => "App\Models\Clients", // foreign key model   
         ]);
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
+       // CRUD::column('created_at');
+        //CRUD::column('updated_at');
         //Display an image
-        CRUD::addColumn([
+      /*  CRUD::addColumn([
             'label'=>'Image',
             'name'=>'Emplac_fich',
             'type'=>'image',
             'upload'=>true,
             'path'=>"public/uploads/mylists",
-        ]);
+        ]);*/
 
         //display the name of the client
         CRUD::addColumn([
