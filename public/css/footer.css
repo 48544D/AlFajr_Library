@@ -1,6 +1,7 @@
 footer {    
     padding: 20px 50px;
     width: 100%;
+    height: 100%;
 }
 
 footer .wrapper {
@@ -192,11 +193,61 @@ footer .right .horaire p {
         flex-direction: column;
         gap: 5vw;
     }
+
+    footer .line {
+        width: 100%;
+        height: 2px;
+        background-color: #000;
+    }
+
+    footer .left .logo {
+        width: 30vw;
+    }
+
+    footer .left .info p {
+        font-size: 3vw;
+    }
+
+    footer .left .social {
+        font-size: 3vw;
+    }
+
+    footer .left .social a i {
+        width: 4vw;
+        font-size: 4vw;
+    }
+
+    footer .right .map{
+        width: 80vw;
+        height: 50vw;
+    }
+
+    footer .right .coords {
+        font-size: 3vw;
+    }
+
+    footer .right .coords p {
+        gap: 3vw;
+    }
+
+    footer .right .horaire {
+        font-size: 3vw;
+    }
+
+    footer .right .horaire p {
+        gap: 2vw;
+    }
 }
 
 @media screen and (max-width: 426px) {
     footer {
         padding: 20px 20px;
+    }
+
+    footer .line {
+        width: 100%;
+        height: 2px;
+        background-color: #000;
     }
 
     footer .left .logo {

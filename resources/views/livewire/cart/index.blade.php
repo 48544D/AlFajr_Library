@@ -2,7 +2,7 @@
     <div class="cart-container">
         <div class="row justify-content-between cart-row">
         @if(count($cartItems) > 0)
-            <div class="col-md-8 table-container">
+            <div class="table-container">
                 <table class="table">
                     <thead>
                         <tr>
@@ -53,7 +53,7 @@
                 </table>
             </div>
     
-            <div class="col-md-3 cart-checkout">
+            <div class="cart-checkout">
                 <h3>Panier</h3>
                 <div class="cart-summary">
                     <div class="cart-total">
