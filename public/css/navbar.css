@@ -267,7 +267,7 @@ hr {
         height: 100%;
         width: 100%;
         left: -100%;
-        overflow-y: auto;
+        /* overflow-y: auto; */
         padding-top: 3vw;
         background-color: var(--background-color);
         transition: all 0.3s ease;
@@ -314,6 +314,8 @@ hr {
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
+        padding: 0;
+        padding-left: 5%;
         gap: 2vw;
         height: auto;
     }
@@ -340,6 +342,13 @@ hr {
 
     .ul-container li {
         width: 100%;
+    }
+
+    .bottom-section .has-dropdown:hover .dropdown,
+    .bottom-section .dropdown:hover {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-5px);
     }
 
     .bottom-section .category-checkbox:checked ~ .dropdown {
