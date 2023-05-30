@@ -1,6 +1,6 @@
 <div>
     <div class="cart-container">
-        <div class="row justify-content-between">
+        <div class="row justify-content-between cart-row">
         @if(count($cartItems) > 0)
             <div class="col-md-8 table-container">
                 <table class="table">
