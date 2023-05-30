@@ -1,6 +1,8 @@
-<link rel="stylesheet" href="{{ asset('css/maliste.css') }}">
-
 @extends('index')
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/maliste.css') }}">
+@endsection
 
 @section('content')
     <div class="liste">

@@ -1,6 +1,8 @@
-<link rel="stylesheet" href="{{ asset('css/commande.css') }}">
-
 @extends('index')
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/commande.css') }}">
+@endsection
 
 @section('content')
     <div class="container">

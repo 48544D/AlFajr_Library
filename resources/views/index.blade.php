@@ -27,6 +27,8 @@
 
     {{-- app scripts --}}
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    @yield('css')
 </head>
 <body>
     @include('components/navbar')
