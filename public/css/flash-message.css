@@ -14,3 +14,14 @@
     font-size: 1.2vw;
     margin: 0;
 }
+
+/* responsivity */
+@media screen and (max-width: 426px) {
+    .flash-message {
+        top: 2vw;
+    }
+
+    .flash-message p {
+        font-size: 4vw;
+    }
+}
