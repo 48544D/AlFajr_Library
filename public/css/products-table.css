@@ -125,11 +125,15 @@
     cursor: not-allowed;
 }
 
-.pagination {
+.pagination-container {
     display: flex;
     justify-content: center;
     margin-top: 1vw;
-    width: 100%;
+    /* width: 100%; */
+}
+
+.pagination-container .pagination {
+    flex-wrap: wrap;
 }
 
 /* no product to show */
@@ -138,4 +142,111 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+}
+
+/* responsivity */
+@media screen and (max-width: 1024px) {
+    .product-container {
+        grid-template-columns: repeat(3, minmax(0,1fr));
+        gap: 3vw;
+    }
+
+    .product-card {
+        width: 24vw;
+    }
+
+    .product-image {
+        height: 15vw;
+    }
+
+    .product-name a {
+        font-size: 1.3vw;
+    }
+
+    .product-price {
+        font-size: 1.5vw;
+    }
+
+    .product-button {
+        font-size: 1.7vw;
+        margin-top: 2vh;
+    }
+
+    .pagination-container {
+        margin-top: 1.5vw;
+    }
+
+    .product-details {
+        padding: 1vw 0 0 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .product-container {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+
+    .product-card {
+        width: 35vw;
+        padding: 2vw;
+    }
+
+    .product-image {
+        height: 23vw;
+    }
+
+    .product-name a {
+        font-size: 2.2vw;
+    }
+
+    .product-price {
+        font-size: 2.2vw;
+    }
+
+    .product-button {
+        font-size: 2.5vw;
+        margin-top: 4vh;
+    }
+
+    .pagination-container {
+        margin-top: 2vw;
+    }
+
+    .product-details {
+        padding: 2vw 0 0 0;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .product-container {
+        grid-template-columns: repeat(1, minmax(0,1fr));
+        gap: 10vw;
+    }
+
+    .product-card {
+        width: 70vw;
+        padding: 3vw;
+    }
+
+    .product-image {
+        height: 50vw;
+    }
+
+    .product-name a {
+        -webkit-line-clamp: 2;
+        font-size: 6vw;
+    }
+
+    .product-price {
+        font-size: 6vw;
+    }
+
+    .product-button {
+        font-size: 5vw;
+        margin-top: 10vw;
+    }
+
+    .product-details {
+        padding: 3vw 0 0 0;
+    }
 }
