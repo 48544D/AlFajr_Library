@@ -129,7 +129,6 @@
     display: flex;
     justify-content: center;
     margin-top: 1vw;
-    /* width: 100%; */
 }
 
 .pagination-container .pagination {
@@ -230,7 +229,7 @@
     }
 
     .product-image {
-        height: 35vw;
+        height: 30vw;
     }
 
     .product-name a {
