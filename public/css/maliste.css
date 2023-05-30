@@ -48,9 +48,9 @@
     align-items: center;
     justify-content: center;
     gap: 1.2vw;
-    padding: 1vw 0 0 0;
+    padding: 2vw 0;
     border-radius: 30px;
-    width: 65%;
+    width: 60%;
     margin: 20vh auto;
     box-shadow: #1772c1 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px, #fbc606 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px, #b5e041 20px -20px, rgb(255, 255, 255) 30px -30px 0px -3px, #fd6500 30px -30px, rgb(255, 255, 255) 40px -40px 0px -3px, #010000 40px -40px;}
 
@@ -116,4 +116,166 @@
     color: #fff;
     cursor: pointer;
     width: 25%;
+}
+
+/* responsivity */
+@media screen and (max-width: 1024px) {
+    .instructions h1 {
+        font-size: 3.5vw;
+    }
+
+    .instructions-main p {
+        font-size: 2vw;
+    }
+    
+    .alert p {
+        font-size: 1.7vw;
+    }
+
+    .instructions li {
+        font-size: 1.7vw;
+    }
+
+    .instructions h2 {
+        font-size: 2.5vw;
+    }
+
+    .maliste-container {
+        width: 80%;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        gap: 5vw;
+        padding: 3vw 5vw;
+    }
+
+    .maliste-container form {
+        gap: 5vw;
+    }
+
+    .maliste-container form .top .top-left {
+        width: 50%;
+
+    }
+
+    .maliste-container form .top .top-left input {
+        font-size: 2vw;
+    }
+
+    .maliste-container form .top input[type="file"] {
+        font-size: 1.5vw;
+    }
+
+    .maliste-container form input[type="submit"] {
+        font-size: 2.5vw;
+    }
+
+    .maliste-container h1 {
+        font-size: 3vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .instructions h1 {
+        font-size: 4vw;
+    }
+
+    .instructions-main p {
+        font-size: 2.5vw;
+    }
+    
+    .alert p {
+        font-size: 2vw;
+    }
+
+    .instructions li {
+        font-size: 2vw;
+    }
+
+    .instructions h2 {
+        font-size: 3vw;
+    }
+
+    .maliste-container {
+        width: 90%;
+        gap: 5vw;
+        padding: 3vw 5vw;
+    }
+
+    .maliste-container form {
+        gap: 5vw;
+    }
+
+    .maliste-container form .top .top-left input {
+        font-size: 2vw;
+    }
+
+    .maliste-container form .top input[type="file"] {
+        font-size: 1.5vw;
+    }
+
+    .maliste-container form input[type="submit"] {
+        font-size: 3vw;
+    }
+
+    .maliste-container h1 {
+        font-size: 4vw;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .instructions h1 {
+        font-size: 5vw;
+    }
+
+    .instructions-main p {
+        font-size: 3vw;
+    }
+    
+    .alert p {
+        font-size: 2.5vw;
+    }
+
+    .instructions li {
+        font-size: 2.5vw;
+    }
+
+    .instructions h2 {
+        font-size: 3.5vw;
+    }
+
+    .maliste-container {
+        width: 90%;
+        gap: 5vw;
+        padding: 3vw 5vw;
+    }
+
+    .maliste-container form {
+        gap: 5vw;
+    }
+
+    .maliste-container form .top {
+        flex-direction: column;
+        gap: 5vw;
+    }
+
+    .maliste-container form .top .top-left {
+        width: 100%;
+    }
+
+    .maliste-container form .top .top-left input {
+        font-size: 2.5vw;
+    }
+
+    .maliste-container form .top input[type="file"] {
+        font-size: 2.5vw;
+        border: 0;
+    }
+
+    .maliste-container form input[type="submit"] {
+        font-size: 3.5vw;
+        width: 50%;
+    }
+
+    .maliste-container h1 {
+        font-size: 5vw;
+    }
 }
