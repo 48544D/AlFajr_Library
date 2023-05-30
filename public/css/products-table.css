@@ -51,7 +51,7 @@
     padding: .8vw 0 0 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     gap: 2vw;
 }
 
@@ -219,31 +219,33 @@
 
 @media screen and (max-width: 426px) {
     .product-container {
-        grid-template-columns: repeat(1, minmax(0,1fr));
+        grid-template-columns: repeat(2, minmax(0,1fr));
         gap: 10vw;
     }
 
     .product-card {
-        width: 70vw;
+        width: 50vw;
+        height: 100%;
         padding: 3vw;
     }
 
     .product-image {
-        height: 50vw;
+        height: 35vw;
     }
 
     .product-name a {
         -webkit-line-clamp: 2;
-        font-size: 6vw;
+        font-size: 3vw;
+        height: 9vw;
     }
 
     .product-price {
-        font-size: 6vw;
+        font-size: 3vw;
     }
 
     .product-button {
-        font-size: 5vw;
-        margin-top: 10vw;
+        font-size: 4vw;
+        margin-top: 4vw;
     }
 
     .product-details {
