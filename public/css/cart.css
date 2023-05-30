@@ -11,6 +11,7 @@
 .table-container {
     height: 71vh;
     overflow-y: auto;
+    width: 70%;
 }
 
 .table {
@@ -217,6 +218,7 @@ input::-webkit-inner-spin-button {
 
     .table-container {
         height: 50vh;
+        width: 100%;
     }
 
     .table-container .table {
