@@ -1,8 +1,5 @@
-footer {
-    /* background-color: var(--background-color); */
-    
+footer {    
     padding: 20px 50px;
-    /* height: 100%; */
     width: 100%;
 }
 
@@ -141,4 +138,102 @@ footer .right .horaire p {
     display: flex;
     align-items: center;
     gap: .5vw;
+}
+
+/* responsivity */
+@media screen and (max-width: 1024px) {
+    footer {
+        padding: 20px 30px;
+    }
+
+    footer .left .logo {
+        width: 25vw;
+    }
+
+    footer .left .info p {
+        font-size: 2vw;
+    }
+
+    footer .left .social {
+        font-size: 2vw;
+    }
+
+    footer .left .social a i {
+        width: 3vw;
+        font-size: 3vw;
+    }
+
+    footer .right .map{
+        width: 50vw;
+        height: 35vw;
+    }
+
+    footer .right .coords {
+        font-size: 2vw;
+    }
+
+    footer .right .coords p {
+        gap: 2vw;
+    }
+
+    footer .right .horaire {
+        font-size: 2vw;
+    }
+
+    footer .right .horaire p {
+        gap: 1vw;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    /* make the flex column */
+    footer .wrapper {
+        flex-direction: column;
+        gap: 5vw;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    footer {
+        padding: 20px 20px;
+    }
+
+    footer .left .logo {
+        width: 40vw;
+    }
+
+    footer .left .info p {
+        font-size: 4vw;
+    }
+
+    footer .left .social {
+        font-size: 4vw;
+    }
+
+    footer .left .social a i {
+        width: 6vw;
+        font-size: 6vw;
+    }
+
+    footer .right .map{
+        width: 80vw;
+        height: 50vw;
+    }
+
+    footer .right .coords {
+        font-size: 4vw;
+    }
+
+    footer .right .coords p {
+        gap: 3vw;
+    }
+
+    footer .right .horaire {
+        font-size: 4vw;
+    }
+
+    footer .right .horaire p {
+        gap: 2vw;
+    }
 }
