@@ -27,4 +27,11 @@ Route::group([
     Route::get('mylists/{id}/download', 'MylistsCrudController@download');
     Route::crud('order-details', 'OrderDetailsCrudController');
     Route::get('order/{id}/details', 'OrderCrudController@details');
+    //promotion from products to promotions
+    Route::get('product/{id}/promotion', 'ProductCrudController@promotion');
+    //route for CreateWithId
+   // Route::get('promotions/CreateWithId', 'PromotionsCrudController@CreateWithId');
+    //download route
+    //Route::get('download/{id}', 'MylistsCrudController@download')->name('download');
+    //Route::get('/mylists/download/{id}', 'MylistsCrudController@download')->name('download');
 }); // this should be the absolute last line of this file

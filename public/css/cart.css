@@ -11,6 +11,7 @@
 .table-container {
     height: 71vh;
     overflow-y: auto;
+    width: 70%;
 }
 
 .table {
@@ -162,9 +163,10 @@ input::-webkit-inner-spin-button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 25vw;
+    height: max-content;
     gap: 3vw;
-    padding: 1vw 0;
+    width: 20%;
+    padding: 1vw 1vw;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
@@ -184,4 +186,109 @@ input::-webkit-inner-spin-button {
 
 .cart-checkout p {
     margin: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .cart-container {
+        padding: 4vh 2vw;
+    }
+
+    .cart-info h4 {
+        font-size: 20px;
+    }
+
+    .cart-info p {
+        font-size: 18px;
+    }
+
+    .cart-checkout h3 {
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cart-container {
+        padding: 4vh 1vw;
+    }
+
+    .cart-row {
+        flex-direction: column;
+        gap: 6vw;
+    }
+
+    .table-container {
+        height: 50vh;
+        width: 100%;
+    }
+
+    .table-container .table {
+        width: 100%;
+    }
+
+    .cart-img img {
+        width: 10vw;
+        height: 10vw;
+    }
+
+    .cart-info h4 {
+        font-size: 22px;
+    }
+
+    .cart-info p {
+        font-size: 20px;
+    }
+
+    .cart-checkout {
+        gap: 10vw;
+        width: 40%;
+        margin: 0 auto;
+    }
+
+    .cart-checkout h3 {
+        font-size: 4vw;
+    }
+
+    .cart-checkout button, .cart-checkout a {
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .cart-container {
+        padding: 4vh 0;
+    }
+    
+    .cart-row {
+        gap: 10vw;
+    }
+
+    .cart-img img {
+        width: 20vw;
+        height: 20vw;
+    }
+
+    .cart-info h4 {
+        font-size: 22px;
+    }
+
+    .cart-info p {
+        font-size: 20px;
+    }
+
+    .cart-checkout {       
+        padding: 4vw;
+        gap: 20vw;
+        width: 60%;
+    }
+
+    .cart-checkout h3 {
+        font-size: 6vw;
+    }
+
+    .cart-checkout button, .cart-checkout a {
+        font-size: 4vw;
+        padding: 1vw;
+        margin: 0 auto;
+        width: 100%;
+    }
 }

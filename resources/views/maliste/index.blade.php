@@ -1,6 +1,8 @@
-<link rel="stylesheet" href="{{ asset('css/maliste.css') }}">
-
 @extends('index')
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/maliste.css') }}">
+@endsection
 
 @section('content')
     <div class="liste">
@@ -23,17 +25,83 @@
 
         <div class="maliste-container">
             <h1>ma liste</h1>
-            <form action="{{ route('maliste.store') }}">
+            <form method="POST" action="{{ route('maliste.store') }}" enctype="multipart/form-data">
+                @csrf
                 <div class="top">
                     <div class="top-left">
-                        <input type="text" name="nom" placeholder="Nom">
-                        <input type="text" name="tele" placeholder="Telephone">
-                        <input type="text" name="etablissement" placeholder="Etablissement">
-                        <input type="text" name="niveau" placeholder="Niveau">
+                        <div class="form-field">
+                            <input type="text" name="nom" placeholder="Nom"
+                            value="{{old('nom')}}"
+                            required >
+                            @error('nom')
+                                <div class="text-danger">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-field">
+                            <input type="text" name="prenom" placeholder="Prenom"
+                            value="{{old('prenom')}}"
+                            required >
+                            @error('prenom')
+                                <div class="text-danger">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-field">
+                            <input type="text" name="email" placeholder="Email"
+                            value="{{old('email')}}"
+                            required >
+                            @error('email')
+                                <div class="text-danger">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-field">
+                            <input type="text" name="tele" placeholder="Telephone"
+                            value="{{old('tele')}}"
+                            required >
+                            @error('tele')
+                                <div class="text-danger">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-field">
+                            <input type="text" name="etablissement" placeholder="Etablissement"
+                            value="{{old('etablissement')}}"
+                            required >
+                            @error('etablissement')
+                                <div class="text-danger">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-field">
+                            <input type="text" name="niveau" placeholder="Niveau"
+                            value="{{old('niveau')}}"
+                            required >
+                            @error('niveau')
+                                <div class="text-danger">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                        </div>
                     </div>
-                    <input type="file" name="doc" id="doc"
+                    <div class="form-field">
+                        <input type="file" name="doc" id="doc"
                         accept=".jpg, .png, .pdf, .doc, .docx"
-                    >
+                        value="{{old('doc')}}"
+                        required
+                        >
+                        @error('doc')
+                            <div class="text-danger">
+                                {{$message}}
+                            </div>
+                        @enderror
+                    </div>
                 </div>
                 <input type="submit" value="déposer">
             </form>

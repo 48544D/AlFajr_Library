@@ -44,7 +44,7 @@
         </div>
     @endunless
     
-    <div class="pagination">
+    <div class="pagination-container">
         {{ $products->links() }}
     </div>
 

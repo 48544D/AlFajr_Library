@@ -14,3 +14,35 @@
     font-size: 1.2vw;
     margin: 0;
 }
+
+/* responsivity */
+@media screen and (max-width: 1024px) {
+    .flash-message {
+        top: 2vw;
+    }
+
+    .flash-message p {
+        font-size: 1.5vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .flash-message {
+        top: 2vw;
+    }
+
+    .flash-message p {
+        font-size: 2vw;
+    }
+}
+
+
+@media screen and (max-width: 426px) {
+    .flash-message {
+        top: 2vw;
+    }
+
+    .flash-message p {
+        font-size: 4vw;
+    }
+}
