@@ -43,16 +43,15 @@ class OrderCrudController extends CrudController
         CRUD::addColumn([
             'name' => 'nom',
             'type' => 'select',
-            'label' => 'Nom du client',
+            'label' => 'Nom',
             'entity' => 'client',
             'attribute' => 'nom',
             'model' => "App\Models\Client",
         ]);
-        
         CRUD::addColumn([
             'name' => 'prenom',
             'type' => 'select',
-            'label' => 'Prenom du client',
+            'label' => 'Prenom',
             'entity' => 'client',
             'attribute' => 'prenom',
             'model' => "App\Models\Client",
@@ -60,28 +59,48 @@ class OrderCrudController extends CrudController
         CRUD::addColumn([
             'name' => 'telephone',
             'type' => 'select',
-            'label' => 'Telephone du client',
+            'label' => 'Telephone',
             'entity' => 'client',
             'attribute' => 'telephone',
             'model' => "App\Models\Client",
         ]);
-               
-        CRUD::column('product_id');
-        CRUD::column('quantity');
-        CRUD::column('total');
-        //show if the order is treated or not
+        
+        CRUD::column('total_quant')->label('Quantité totale');
+        CRUD::column('total_price')->label('Prix total');
+        //change color of the column estTraite based on the value
         CRUD::addColumn([
             'name' => 'estTraite',
             'type' => 'boolean',
-            'label' => 'est Traite',
+            'label' => 'Est traité',
+            'options' => [0 => 'En attente', 1 => 'Complété'],
+            'wrapper' => [
+                'element' => 'span',
+                'class' => function ($crud, $column, $entry, $related_key) {
+                    return $entry->estTraite ? 'badge badge-success' : 'badge badge-warning';
+                },
+                'style' => 'height: 28px;font-size: 15px;color:white;',
+            ],
         ]);
+        //hide appecu button from actions section
+        $this->crud->removeButton('show');
+        $this->crud->addButtonFromView('line', 'details', 'details', 'beginning');
+        //CRUD::column('estTraite');
+
+               
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
          * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
          */
     }
-
+    public function details($id)
+    {
+        if (isset($_GET['order_id'])) {
+            unset($_GET['order_id']); // Remove the order_id from the query parameters
+        }
+        return redirect('admin/order-details?order_id='.$id);
+    }
+    
     /**
      * Define what happens when the Create operation is loaded.
      * 
@@ -93,18 +112,8 @@ class OrderCrudController extends CrudController
         CRUD::setValidation(OrderRequest::class);
         
         CRUD::field('client_id');
-        //chose multiple products
-        CRUD::addField([
-            'name' => 'product_id',
-            'label' => 'Produit',
-            'type' => 'select_multiple',
-            'entity' => 'product',
-            'attribute' => 'name',
-            'model' => "App\Models\Product",
-        ]);
-
-        CRUD::field('quantity');
-        CRUD::field('total');
+        CRUD::field('total_quant');
+        CRUD::field('total_price');
         CRUD::field('estTraite');
         /**
          * Fields can be defined using the fluent syntax or array syntax:

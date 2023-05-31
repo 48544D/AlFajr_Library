@@ -11,9 +11,8 @@ class order extends Model
     use CrudTrait;
     protected $fillable=[
         'client_id',
-        'product_id',
-        'quantity',
-        'total',
+        'total_quant',
+        'total_price',
         'estTraite',
     ];
     use HasFactory;
@@ -21,9 +20,9 @@ class order extends Model
     {
         return $this->belongsTo(client::class);
     }
-    public function product()
+    public function order_details()
     {
-        return $this->belongsTo(product::class);
+        return $this->hasMany(Order_details::class);
     }
     
 }

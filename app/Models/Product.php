@@ -34,9 +34,9 @@ class Product extends Model
         return $this->belongsTo(SubCategory::class);
     }
 
-    public function orders()
+    public function order_details()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(Order_details::class);
     }
 
     public function promotion()
