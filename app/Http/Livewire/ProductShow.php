@@ -30,7 +30,7 @@ class ProductShow extends Component
             Cart::add([
                 'id' => $product->id,
                 'name' => $product->name,
-                'qty' => 1,
+                'qty' => $this->quantity,
                 'price' => $promotion->prix_prom,
                 'weight' => 0,
                 'options' => [
@@ -43,7 +43,7 @@ class ProductShow extends Component
             Cart::add([
                 'id' => $product->id,
                 'name' => $product->name,
-                'qty' => 1,
+                'qty' => $this->quantity,
                 'price' => $product->price,
                 'weight' => 0,
                 'options' => [
