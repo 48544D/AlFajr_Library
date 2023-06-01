@@ -29,6 +29,7 @@ Route::group([
     Route::get('order/{id}/details', 'OrderCrudController@details');
     //promotion from products to promotions
     Route::get('product/{id}/promotion', 'ProductCrudController@promotion');
+    Route::get('order/{id}/valider', 'OrderCrudController@valider');
     //route for CreateWithId
    // Route::get('promotions/CreateWithId', 'PromotionsCrudController@CreateWithId');
     //download route

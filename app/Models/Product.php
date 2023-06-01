@@ -17,7 +17,7 @@ class Product extends Model
         'reference',
         'image',
         'sub_category_id',
-        'stock',
+        'estDisponible',
     ];
 
     use HasFactory;

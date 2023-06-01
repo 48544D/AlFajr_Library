@@ -65,26 +65,27 @@ class OrderCrudController extends CrudController
             'model' => "App\Models\Client",
         ]);
         
-        CRUD::column('total_quant')->label('Quantité totale');
+        //CRUD::column('total_quant')->label('Quantité totale');
         CRUD::column('total_price')->label('Prix total');
-        //change color of the column estTraite based on the value
         CRUD::addColumn([
             'name' => 'estTraite',
             'type' => 'boolean',
-            'label' => 'Est traité',
-            'options' => [0 => 'En attente', 1 => 'Complété'],
+            'label' => 'Etat de la commande',
+            'options' => [0 => 'En attente', 1 => 'Traité'],
             'wrapper' => [
                 'element' => 'span',
                 'class' => function ($crud, $column, $entry, $related_key) {
                     return $entry->estTraite ? 'badge badge-success' : 'badge badge-warning';
                 },
-                'style' => 'height: 28px;font-size: 15px;color:white;',
+                'style' => 'height: 28px;font-size: 15px;color:white;width: 100px;',
             ],
         ]);
         //hide appecu button from actions section
         $this->crud->removeButton('show');
         $this->crud->addButtonFromView('line', 'details', 'details', 'beginning');
-        //CRUD::column('estTraite');
+        $this->crud->addClause('orderBy', 'estTraite', 'asc');
+        //add button to validate the order in the end of the line
+        $this->crud->addButtonFromView('line', 'valider', 'valider', 'end');
 
                
         /**
@@ -100,6 +101,16 @@ class OrderCrudController extends CrudController
         }
         return redirect('admin/order-details?order_id='.$id);
     }
+    //function to validate the order and handles errors
+    public function valider($id)
+{
+        $order = \App\Models\Order::findOrFail($id); 
+        $order->estTraite = 1; 
+        $order->save(); 
+        return redirect('admin/order');
+}
+
+    
     
     /**
      * Define what happens when the Create operation is loaded.

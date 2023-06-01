@@ -100,7 +100,8 @@ class ProductCrudController extends CrudController
                 'placeholder' => 'Sélectionnez une sous catégorie'
             ]
         ]);
-        CRUD::field('stock');
+        //est displonible
+        CRUD::field('estDisponible')->label('Disponible');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

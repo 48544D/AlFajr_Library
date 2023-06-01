@@ -71,7 +71,13 @@ class UserCrudController extends CrudController
             'type' => 'hidden',
             'value' => 'personnel'
         ]);
-        CRUD::field('password')->label('Mot de passe');
+        //show password option
+        
+
+        //CRUD::field('password')->label('Mot de passe');
+
+        //CRUD::field('password')->label('Mot de passe');
+
        
         /**
          * Fields can be defined using the fluent syntax or array syntax:
