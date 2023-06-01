@@ -55,8 +55,7 @@ class ProductShow extends Component
         $this->emit('cart_update');
 
         session()->flash('message', 'Produit ajouté au panier.');
-
-        // return redirect()->route('home');
+        $this->emit('alert_remove');
     }
 
     public function mount(Product $product)

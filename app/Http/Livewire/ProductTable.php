@@ -60,6 +60,7 @@ class ProductTable extends Component
         $this->emit('cart_update');
 
         session()->flash('message', 'Produit ajouté au panier !');
+        $this->emit('alert_remove');
     }
 
     // public function reloadProducts($query)

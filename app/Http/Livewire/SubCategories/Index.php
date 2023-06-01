@@ -65,5 +65,6 @@ class Index extends Component
         $this->emit('cart_update');
 
         session()->flash('message', 'Produit ajouté au panier !');
+        $this->emit('alert_remove');
     }
 }
