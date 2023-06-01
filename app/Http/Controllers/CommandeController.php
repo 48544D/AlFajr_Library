@@ -37,11 +37,15 @@ class CommandeController extends Controller
                 ]);
                 $client->save();
 
+                // reference format : day-month-year-client_id
+                // $ref = date('dmY') . $client->id;
+
                 $order = new order(
                     [
+                        // 'reference' => $ref,
                         'client_id' => $client->id,
                         'total_quant' => Cart::count(),
-                        'total_price' => intval(str_replace(',', '', Cart::subtotal())),
+                        'total_price' => doubleval(str_replace(',', '', Cart::subtotal())),
                         'estTraite' => false,
                     ]
                 );
