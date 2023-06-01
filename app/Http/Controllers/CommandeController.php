@@ -24,7 +24,7 @@ class CommandeController extends Controller
                 $request->validate([
                     'nom' => 'required',
                     'prenom' => 'required',
-                    'tele' => 'required|numeric|max:10|min:10',
+                    'tele' => 'required|numeric|digits:10',
                     'email' => 'required|email',
                     'checkbox' => 'required',
                 ]);
