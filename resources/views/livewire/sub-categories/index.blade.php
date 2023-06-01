@@ -9,7 +9,7 @@
                     <div class="product-details">
                         <div class="product-info">
                             <div class="product-name">
-                                <a href="products/{{$product->id}}">{{ $product->name }}</a>
+                                <a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a>
                             </div>
                             <div class="product-price">
                                Prix : <span>{{ $product->price }} DH</span>

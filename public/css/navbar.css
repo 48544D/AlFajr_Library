@@ -157,7 +157,7 @@ hr {
     text-transform: uppercase;
 }
 
-.bottom-section ul li:hover > .category-name {
+.bottom-section ul li:hover > .category-name, .bottom-section ul li:hover > a {
     color: var(--navbar-hover);
 }
 
