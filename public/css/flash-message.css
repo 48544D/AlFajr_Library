@@ -15,6 +15,23 @@
     margin: 0;
 }
 
+/* normal flash message */
+.normal-flash-message {
+    position: fixed;
+    top: 1vw;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--hover-button);
+    color: white;
+    padding: .7vw 3vw;
+    z-index: 100;
+}
+
+.normal-flash-message p {
+    font-size: 1.2vw;
+    margin: 0;
+}
+
 /* responsivity */
 @media screen and (max-width: 1024px) {
     .flash-message {
@@ -22,6 +39,14 @@
     }
 
     .flash-message p {
+        font-size: 1.5vw;
+    }
+
+    .normal-flash-message {
+        top: 2vw;
+    }
+
+    .normal-flash-message p {
         font-size: 1.5vw;
     }
 }
@@ -34,6 +59,14 @@
     .flash-message p {
         font-size: 2vw;
     }
+
+    .normal-flash-message {
+        top: 2vw;
+    }
+
+    .normal-flash-message p {
+        font-size: 2vw;
+    }
 }
 
 
@@ -43,6 +76,14 @@
     }
 
     .flash-message p {
+        font-size: 4vw;
+    }
+
+    .normal-flash-message {
+        top: 2vw;
+    }
+
+    .normal-flash-message p {
         font-size: 4vw;
     }
 }

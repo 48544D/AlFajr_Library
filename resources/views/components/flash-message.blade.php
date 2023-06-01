@@ -1,5 +1,13 @@
-@if (session()->has('message'))
+@if (session()->has('LivewireMessage'))
     <div class="flash-message">
+        <p class="m-0">
+            {{session('LivewireMessage')}}
+        </p>
+    </div>
+@endif
+
+@if (session()->has('message'))
+    <div x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show" class="normal-flash-message">
         <p class="m-0">
             {{session('message')}}
         </p>

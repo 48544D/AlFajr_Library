@@ -25,6 +25,9 @@
     {{-- fontawesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    {{-- alpinejs --}}
+    <script src="//unpkg.com/alpinejs" defer></script>
+
     {{-- app scripts --}}
     <script src="{{ asset('js/app.js') }}" defer></script>
 
