@@ -14,6 +14,7 @@ class order extends Model
         'total_quant',
         'total_price',
         'estTraite',
+        'reference',
     ];
     use HasFactory;
     public function client()

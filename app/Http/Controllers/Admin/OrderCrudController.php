@@ -101,6 +101,9 @@ class OrderCrudController extends CrudController
         }
         return redirect('admin/order-details?order_id='.$id);
     }
+
+
+
     //function to validate the order and handles errors
     public function valider($id)
 {
@@ -163,7 +166,7 @@ class OrderCrudController extends CrudController
             'model' => "App\Models\Client",
         ]);
      
-        CRUD::Column('client_id');
+       // CRUD::Column('client_id');
         CRUD::Column('product_id');
         CRUD::Column('quantity');
         CRUD::Column('total');

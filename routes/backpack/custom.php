@@ -35,4 +35,5 @@ Route::group([
     //download route
     //Route::get('download/{id}', 'MylistsCrudController@download')->name('download');
     //Route::get('/mylists/download/{id}', 'MylistsCrudController@download')->name('download');
+    Route::crud('control', 'ControlCrudController');
 }); // this should be the absolute last line of this file
