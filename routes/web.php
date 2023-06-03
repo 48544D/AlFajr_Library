@@ -84,5 +84,11 @@ Route::prefix('commande')->controller(CommandeController::class)->group(function
     
         // commande store
         Route::post('/', 'store')->name('commande.store');
+
+        // commande success
+        Route::get('/success', function () {
+            $ref = session('ref');
+            return view('commande.success', compact('ref'));
+        })->name('commande.success');
     }
 });

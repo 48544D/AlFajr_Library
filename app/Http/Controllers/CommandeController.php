@@ -20,7 +20,7 @@ class CommandeController extends Controller
     public function store(Request $request)
     {
         if (Cart::count() == 0) {
-            return redirect()->route('home');
+            return redirect()->route('home')->with('message', 'Votre panier est vide !');
         }
         
         DB::beginTransaction();
@@ -42,11 +42,11 @@ class CommandeController extends Controller
                 $client->save();
 
                 // reference format : day-month-year-client_id
-                // $ref = date('dmY') . $client->id;
+                $ref = date('dmY') . $client->id;
 
                 $order = new order(
                     [
-                        // 'reference' => $ref,
+                        'reference' => $ref,
                         'client_id' => $client->id,
                         'total_quant' => Cart::count(),
                         'total_price' => doubleval(str_replace(',', '', Cart::subtotal())),
@@ -65,7 +65,9 @@ class CommandeController extends Controller
 
                 Cart::destroy();
 
-                return redirect()->route('home')->with('message', 'Commande effectuée avec succès !');
+                DB::commit();
+                session(['ref' => $ref]);
+                return redirect()->route('commande.success');
 
         } catch (\Exception $e) {
             DB::rollback();
