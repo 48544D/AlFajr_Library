@@ -19,6 +19,10 @@ class CommandeController extends Controller
 
     public function store(Request $request)
     {
+        if (Cart::count() == 0) {
+            return redirect()->route('home');
+        }
+        
         DB::beginTransaction();
         try {
                 $request->validate([
