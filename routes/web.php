@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\SubcategoryController;
+use App\Models\control;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,16 +36,28 @@ Route::prefix('products')->controller(ProductController::class)->group(function 
 
 // route group for cart
 Route::prefix('cart')->controller(CartController::class)->group(function () {
-    // get cart
-    Route::get('/', 'index')->name('cart.index');
+    if (control::first()->PanierActif == 0) {
+        Route::get('/', function () {
+            return redirect()->route('home')->with('message', 'Panier désactivé !');
+        })->name('cart.index');
+    } else {
+        // get cart
+        Route::get('/', 'index')->name('cart.index');
+    }
 });
 
 // route group for maliste
 Route::prefix('maliste')->controller(MalisteController::class)->group(function () {
-    // get maliste
-    Route::get('/', 'index')->name('maliste.index');
-    // store
-    Route::post('/', 'store')->name('maliste.store');
+    if (control::first()->MaListeActive == 0) {
+        Route::get('/', function () {
+            return redirect()->route('home')->with('message', 'Ma liste désactivé !');
+        })->name('maliste.index');
+    } else {
+        // get maliste
+        Route::get('/', 'index')->name('maliste.index');
+        // store
+        Route::post('/', 'store')->name('maliste.store');
+    }
 });
 
 // route group for subcategories
@@ -61,9 +74,15 @@ Route::prefix('promotions')->controller(PromotionController::class)->group(funct
 
 // route group for commande
 Route::prefix('commande')->controller(CommandeController::class)->group(function () {
-    // commande index
-    Route::get('/', 'index')->name('commande.index');
-
-    // commande store
-    Route::post('/', 'store')->name('commande.store');
+    if (control::first()->PanierActif == 0) {
+        Route::get('/', function () {
+            return redirect()->route('home')->with('message', 'Panier désactivée !');
+        })->name('commande.index');
+    } else {
+        // commande index
+        Route::get('/', 'index')->name('commande.index');
+    
+        // commande store
+        Route::post('/', 'store')->name('commande.store');
+    }
 });

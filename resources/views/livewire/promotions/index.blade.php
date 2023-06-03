@@ -15,7 +15,11 @@
                                Prix : <span class="line-through">{{ $promotion->product->price }} DH</span> ~ <span class="product-prom"> {{ $promotion->prix_prom }} DH</span>
                             </div>
                         </div>
-                        @if (!$promotion->product->estDisponible)
+                        @if (!$panierActif)
+                            <div class="product-quantity">
+                                <button class="product-button" disabled>Panier désactivé</button>
+                            </div>
+                        @elseif (!$promotion->product->estDisponible)
                             <div class="product-quantity">
                                 <button class="product-button" disabled>Rupture de stock</button>
                             </div>

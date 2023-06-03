@@ -15,7 +15,11 @@
                                Prix : <span>{{ $product->price }} DH</span>
                             </div>
                         </div>
-                        @if (!$product->estDisponible)
+                        @if (!$panierActif)
+                            <div class="product-quantity">
+                                <button class="product-button" disabled>Panier désactivé</button>
+                            </div>
+                        @elseif (!$product->estDisponible)
                             <div class="product-quantity">
                                 <button class="product-button" disabled>Rupture de stock</button>
                             </div>
