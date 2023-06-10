@@ -30,6 +30,17 @@ class PromotionsCrudController extends CrudController
         CRUD::setModel(\App\Models\Promotions::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/promotions');
         CRUD::setEntityNameStrings('promotions', 'promotions');
+        if(backpack_user()->hasRole('admin')){
+            CRUD::allowAccess('show');
+            CRUD::allowAccess('revisions');
+            CRUD::allowAccess('update');
+            CRUD::allowAccess('delete');
+            CRUD::allowAccess('list');
+            CRUD::allowAccess('create');}
+        else{
+            //deny access with message
+            CRUD::denyAccess(['show', 'revisions', 'update', 'delete', 'list', 'create']);
+        }
     }
 
     /**

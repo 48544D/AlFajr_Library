@@ -50,6 +50,10 @@ class User extends Authenticatable
         $this->attributes['password'] = $value;
     }
     }
+    public function hasRole($role)
+{
+    return $this->role === $role;
+}
 
     /**
      * The attributes that should be cast.

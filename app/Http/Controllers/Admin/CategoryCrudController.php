@@ -29,6 +29,20 @@ class CategoryCrudController extends CrudController
         CRUD::setModel(\App\Models\Category::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/category');
         CRUD::setEntityNameStrings('category', 'categories');
+        //allow if the user has role admin
+        if(backpack_user()->hasRole('admin')){
+            CRUD::allowAccess('show');
+            CRUD::allowAccess('revisions');
+            CRUD::allowAccess('update');
+            CRUD::allowAccess('delete');
+            CRUD::allowAccess('list');
+            CRUD::allowAccess('create');}
+        else{
+            //deny access with message
+            CRUD::denyAccess(['show', 'revisions', 'update', 'delete', 'list', 'create']);
+        }
+        
+            
     }
 
     /**

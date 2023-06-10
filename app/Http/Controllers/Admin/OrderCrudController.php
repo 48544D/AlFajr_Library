@@ -40,6 +40,8 @@ class OrderCrudController extends CrudController
     protected function setupListOperation()
     { 
         //show all informations of the client
+        //reference
+        CRUD::column('reference')->label('Référence');
         CRUD::addColumn([
             'name' => 'nom',
             'type' => 'select',

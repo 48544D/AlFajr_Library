@@ -57,15 +57,16 @@ class Product extends Model
         $attribute_name = "image";
         $disk = "public";
         $destination_path = "images/products";
+        //filename is the reference of the product with the .jpg extension
+        $fileName = $this->reference . '.jpg';
         if ($value==null) {
             // delete the image from disk
             Storage::delete(Str::replaceFirst('storage/','public/',$this->{$attribute_name}));
-    
             // set null in the database column
-            $this->attributes[$attribute_name] = null;
+            $this->attributes[$attribute_name] =  $destination_path.'/'.$fileName;
+
         }
-        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path, $fileName = null);
+        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path, $fileName);
       
     }
-
 }

@@ -29,6 +29,17 @@ class ProductCrudController extends CrudController
         CRUD::setModel(\App\Models\Product::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/product');
         CRUD::setEntityNameStrings('product', 'products');
+        if(backpack_user()->hasRole('admin')){
+            CRUD::allowAccess('show');
+            CRUD::allowAccess('revisions');
+            CRUD::allowAccess('update');
+            CRUD::allowAccess('delete');
+            CRUD::allowAccess('list');
+            CRUD::allowAccess('create');}
+        else{
+            //deny access with message
+            CRUD::denyAccess(['show', 'revisions', 'update', 'delete', 'list', 'create']);
+        }
     }
 
     /**

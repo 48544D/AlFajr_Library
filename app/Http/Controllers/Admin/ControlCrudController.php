@@ -29,6 +29,21 @@ class ControlCrudController extends CrudController
         CRUD::setModel(\App\Models\Control::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/control');
         CRUD::setEntityNameStrings('control', 'controls');
+        $this->crud->setListView('controlsList');
+        if(backpack_user()->hasRole('admin')){
+            CRUD::allowAccess('show');
+            CRUD::allowAccess('revisions');
+            CRUD::allowAccess('update');
+            CRUD::allowAccess('delete');
+            CRUD::allowAccess('list');
+            CRUD::allowAccess('create');}
+        else{
+            //deny access with message
+            CRUD::denyAccess(['show', 'revisions', 'update', 'delete', 'list', 'create']);
+        }
+       
+
+        
     }
 
     /**
@@ -71,6 +86,9 @@ class ControlCrudController extends CrudController
         //remove delete button
         CRUD::removeButton('delete');
 
+         //remove show button
+            CRUD::removeButton('show');
+         
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');

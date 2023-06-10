@@ -72,7 +72,7 @@ class MylistsCrudController extends CrudController
             'name' => 'Nom_id', // the db column for the foreign key
             'entity' => 'client', // the method that defines the relationship in your Model
             'attribute' => 'prenom', 
-            'model' => "App\Models\Clients", // foreign key model   
+            'model' => "App\Models\client", // foreign key model   
         ]);
        // CRUD::column('created_at');
         //CRUD::column('updated_at');
@@ -91,7 +91,7 @@ class MylistsCrudController extends CrudController
             'name' => 'client_id', // the db column for the foreign key
             'entity' => 'client', // the method that defines the relationship in your Model
             'attribute' => 'name', 
-            'model' => "App\Models\Clients", // foreign key model
+            'model' => "App\Models\client", // foreign key model
            
         ]);
         
