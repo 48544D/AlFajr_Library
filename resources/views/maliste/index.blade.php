@@ -60,7 +60,7 @@
                             @enderror
                         </div>
                         <div class="form-field">
-                            <input type="text" name="tele" placeholder="Telephone"
+                            <input type="tel" name="tele" placeholder="Telephone" pattern="0[5-7][0-9]{8}" 
                             value="{{old('tele')}}"
                             required >
                             @error('tele')

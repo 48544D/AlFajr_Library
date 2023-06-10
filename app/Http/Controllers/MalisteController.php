@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Clients;
 use App\Models\Mylists;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MalisteController extends Controller
 {
@@ -26,26 +27,36 @@ class MalisteController extends Controller
         ]);
         // dd($request->all());
 
-        $client = new Clients([
-            'nom' => $request->get('nom'),
-            'prenom' => $request->get('prenom'),
-            'telephone' => $request->get('tele'),
-            'email' => $request->get('email'),
-        ]);
-        $client->save();
+        DB::beginTransaction();
+        try {
+            $client = new Clients([
+                'nom' => $request->get('nom'),
+                'prenom' => $request->get('prenom'),
+                'telephone' => $request->get('tele'),
+                'email' => $request->get('email'),
+            ]);
+            $client->save();
 
-        $nomDoc = $request->file('doc')->getClientOriginalName();
-        $mylist = new Mylists([
-            'Etablissement' => $request->get('etablissement'),
-            'Niveau' => $request->get('niveau'),
-            'Nom_doc' => $nomDoc,
-             'reference'=>date('dmy').$client->id
-        ]);
-        $mylist['client_id'] = $client['id'];
-        $mylist['Emplac_fich'] = $request->file('doc')->store('images/maliste', 'public');
-        $mylist->save();
+            $ref = date('dmY') . $client->id;
 
-        session()->flash('message', 'Votre liste a été envoyée avec succès.');
-        return redirect()->route('home');
+            $nomDoc = $request->file('doc')->getClientOriginalName();
+            $mylist = new Mylists([
+                'Etablissement' => $request->get('etablissement'),
+                'Niveau' => $request->get('niveau'),
+                'Nom_doc' => $nomDoc,
+                'reference'=> $ref,
+            ]);
+            $mylist['client_id'] = $client['id'];
+            $mylist['Emplac_fich'] = $request->file('doc')->store('images/maliste', 'public');
+            $mylist->save();
+
+            DB::commit();
+            session(['ref' => $ref]);
+            return redirect()->route('maliste.success');
+        } catch (\Exception $e) {
+            DB::rollback();
+            session()->flash('message', 'Une erreur est survenue lors de l\'envoi de votre liste.');
+            return redirect()->route('home');
+        }
     }
 }
