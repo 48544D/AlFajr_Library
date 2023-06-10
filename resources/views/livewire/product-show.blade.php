@@ -18,9 +18,13 @@
                             {{ $product->price }} DH
                         @endif
                     </p>
-                    @if (!$product->estDisponible)
+                    @if (!$panierActif)
                         <div class="product-quantity">
-                            <button class="product-button" disabled>Produit épuisé</button>
+                            <button class="product-button" disabled>Panier désactivé</button>
+                        </div>
+                    @elseif (!$product->estDisponible)
+                        <div class="product-quantity">
+                            <button class="product-button" disabled>Rupture de stock</button>
                         </div>
                     @elseif (Cart::content()->where('id', $product->id)->first())
                             <div class="product-quantity">

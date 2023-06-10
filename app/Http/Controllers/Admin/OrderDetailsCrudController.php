@@ -29,6 +29,8 @@ class OrderDetailsCrudController extends CrudController
         CRUD::setModel(\App\Models\OrderDetails::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/order-details');
         CRUD::setEntityNameStrings('order details', 'order details');
+       
+        
     }
 
     /**
@@ -47,16 +49,41 @@ class OrderDetailsCrudController extends CrudController
             $orderID = request()->input('order_id');
             $this->crud->addClause('where', 'order_id', '=', $orderID);
         } 
-    
+        //add order reference
         CRUD::addColumn([
-            'name' => 'product_id',
+            'name' => 'order_id',
+            'label' => 'Référence',
             'type' => 'select',
-            'label' => 'Produit',
+            'entity' => 'order',
+            'attribute' => 'reference',
+            'model' => "App\Models\Order",
+            'limit' => 100, // Set a limit to the displayed characters
+            'wrapper' => ['class' => 'text-truncate'],
+            'visibleInTable' => true,
+            'table' => [
+                'attributes' => [
+                    'data-toggle' => 'tooltip',
+                    'title' => '{!! $entry->order_id !!}',
+                ],
+            ],
+        ]);
+        CRUD::addColumn([
+            'name' => 'product_name',
+            'label' => 'Nom du produit',
+            'type' => 'select',
             'entity' => 'product',
             'attribute' => 'name',
             'model' => "App\Models\Product",
+            'limit' => 100, // Set a limit to the displayed characters
+            'wrapper' => ['class' => 'text-truncate'],
+            'visibleInTable' => true,
+            'table' => [
+                'attributes' => [
+                    'data-toggle' => 'tooltip',
+                    'title' => '{!! $entry->product_name !!}',
+                ],
+            ],
         ]);
-    
         CRUD::addColumn([
             'name' => 'quantity',
             'type' => 'number',
@@ -66,8 +93,11 @@ class OrderDetailsCrudController extends CrudController
         CRUD::addColumn([
             'name' => 'price',
             'type' => 'number',
-            'label' => 'Prix',
+            'label' => 'Prix total',
         ]);
+        //remove create button
+        $this->crud->removeButton('create');
+         
     }
     
         

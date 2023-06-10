@@ -2,9 +2,10 @@
 
 namespace App\Http\Livewire\SubCategories;
 
+use App\Models\control;
 use App\Models\Product;
-use App\Models\subCategory;
 use Livewire\Component;
+use App\Models\subCategory;
 use Livewire\WithPagination;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -19,9 +20,11 @@ class Index extends Component
     public function render()
     {
         $products = Product::where('sub_category_id', $this->subCategory_id)->paginate($this->perPage);
+        $panierActif = control::first()->PanierActif;
 
         return view('livewire.sub-categories.index', [
-            'products' => $products
+            'products' => $products,
+            'panierActif' => $panierActif
         ]);
     }
 

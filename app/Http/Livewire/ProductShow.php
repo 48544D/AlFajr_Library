@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\control;
 use App\Models\Product;
 use Livewire\Component;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -15,8 +16,11 @@ class ProductShow extends Component
     {
         // checking if this product is in promotion table
         $promotion = $this->product->promotion()->first();
+        $panierActif = control::first()->PanierActif;
+
         return view('livewire.product-show', [
-            'promotion' => $promotion
+            'promotion' => $promotion,
+            'panierActif' => $panierActif
         ]);
     }
 

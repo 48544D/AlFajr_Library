@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Promotions;
 
+use App\Models\control;
 use Livewire\Component;
 use App\Models\Promotions;
 use Livewire\WithPagination;
@@ -17,9 +18,11 @@ class Index extends Component
     public function render()
     {
         $promotions = Promotions::with('product')->paginate($this->perPage);
+        $panierActif = control::first()->PanierActif;
 
         return view('livewire.promotions.index', [
-            'promotions' => $promotions
+            'promotions' => $promotions,
+            'panierActif' => $panierActif,
         ]);
     }
 }

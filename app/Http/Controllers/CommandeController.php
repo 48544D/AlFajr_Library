@@ -6,6 +6,7 @@ use App\Models\client;
 use App\Models\order;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\DB;
 
 class CommandeController extends Controller
 {
@@ -18,43 +19,59 @@ class CommandeController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'nom' => 'required',
-            'prenom' => 'required',
-            'tele' => 'required|numeric',
-            'email' => 'required|email',
-            'checkbox' => 'required',
-        ]);
-
-        $client = new client([
-            'nom' => $request->get('nom'),
-            'prenom' => $request->get('prenom'),
-            'telephone' => $request->get('tele'),
-            'email' => $request->get('email'),
-        ]);
-        $client->save();
-
-        $order = new order(
-            [
-                'client_id' => $client->id,
-                'total_quant' => Cart::count(),
-                'total_price' => Cart::subtotal(),
-                'estTraite' => false,
-               
-            ]
-        );
-        $order->save();
-
-        foreach (Cart::content() as $item) {
-            $order->order_details()->create([
-                'product_id' => $item->id,
-                'quantity' => $item->qty,
-                'price' => $item->price,
-            ]);
+        if (Cart::count() == 0) {
+            return redirect()->route('home')->with('message', 'Votre panier est vide !');
         }
+        
+        DB::beginTransaction();
+        try {
+                $request->validate([
+                    'nom' => 'required',
+                    'prenom' => 'required',
+                    'tele' => 'required|numeric|digits:10',
+                    'email' => 'required|email',
+                    'checkbox' => 'required',
+                ]);
 
-        Cart::destroy();
+                $client = new client([
+                    'nom' => $request->get('nom'),
+                    'prenom' => $request->get('prenom'),
+                    'telephone' => $request->get('tele'),
+                    'email' => $request->get('email'),
+                ]);
+                $client->save();
 
-        return redirect()->route('home')->with('message', 'Commande effectuée avec succès !');
+                // reference format : day-month-year-client_id
+                $ref = date('dmY') . $client->id;
+
+                $order = new order(
+                    [
+                        'reference' => $ref,
+                        'client_id' => $client->id,
+                        'total_quant' => Cart::count(),
+                        'total_price' => doubleval(str_replace(',', '', Cart::subtotal())),
+                        'estTraite' => false,
+                    ]
+                );
+                $order->save();
+
+                foreach (Cart::content() as $item) {
+                    $order->order_details()->create([
+                        'product_id' => $item->id,
+                        'quantity' => $item->qty,
+                        'price' => $item->price,
+                    ]);
+                }
+
+                Cart::destroy();
+
+                DB::commit();
+                session(['ref' => $ref]);
+                return redirect()->route('commande.success');
+
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->route('home')->with('message', 'Une erreur est survenue lors de la commande !');
+        }
     }
 }

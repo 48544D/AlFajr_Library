@@ -2,10 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\control;
 use App\Models\Product;
 use Livewire\Component;
-use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\WithPagination;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class ProductTable extends Component
 {
@@ -21,7 +22,9 @@ class ProductTable extends Component
         // $products = $this->emited_products ?? Product::filter(request(['search']))->paginate($this->perPage);
         $products = Product::filter(request(['search']))->paginate($this->perPage);
 
-        return view('livewire.product-table', ['products' => $products]);
+        $panierActif = control::first()->PanierActif;
+
+        return view('livewire.product-table', ['products' => $products, 'panierActif' => $panierActif]);
     }
 
     public function addToCart($product_id)
