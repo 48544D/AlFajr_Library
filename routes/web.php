@@ -7,7 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\SubcategoryController;
-use App\Models\control;
+//use App\Models\control;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ Route::prefix('products')->controller(ProductController::class)->group(function 
 
 
 // route group for cart
-Route::prefix('cart')->controller(CartController::class)->group(function () {
+/*Route::prefix('cart')->controller(CartController::class)->group(function () {
     if (control::first()->PanierActif == 0) {
         Route::get('/', function () {
             return redirect()->route('home')->with('message', 'Panier désactivé !');
@@ -44,10 +44,10 @@ Route::prefix('cart')->controller(CartController::class)->group(function () {
         // get cart
         Route::get('/', 'index')->name('cart.index');
     }
-});
+});*/
 
 // route group for maliste
-Route::prefix('maliste')->controller(MalisteController::class)->group(function () {
+/*Route::prefix('maliste')->controller(MalisteController::class)->group(function () {
     if (control::first()->MaListeActive == 0) {
         Route::get('/', function () {
             return redirect()->route('home')->with('message', 'Ma liste désactivé !');
@@ -58,7 +58,7 @@ Route::prefix('maliste')->controller(MalisteController::class)->group(function (
         // store
         Route::post('/', 'store')->name('maliste.store');
     }
-});
+});*/
 
 // route group for subcategories
 Route::prefix('subcategories')->controller(SubcategoryController::class)->group(function () {
@@ -73,7 +73,7 @@ Route::prefix('promotions')->controller(PromotionController::class)->group(funct
 });
 
 // route group for commande
-Route::prefix('commande')->controller(CommandeController::class)->group(function () {
+/*Route::prefix('commande')->controller(CommandeController::class)->group(function () {
     if (control::first()->PanierActif == 0) {
         Route::get('/', function () {
             return redirect()->route('home')->with('message', 'Panier désactivée !');
@@ -91,4 +91,4 @@ Route::prefix('commande')->controller(CommandeController::class)->group(function
             return view('commande.success', compact('ref'));
         })->name('commande.success');
     }
-});
+});*/
