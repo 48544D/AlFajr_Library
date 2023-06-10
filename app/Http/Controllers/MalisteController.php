@@ -39,6 +39,7 @@ class MalisteController extends Controller
             'Etablissement' => $request->get('etablissement'),
             'Niveau' => $request->get('niveau'),
             'Nom_doc' => $nomDoc,
+             'reference'=>date('dmy').$client->id
         ]);
         $mylist['client_id'] = $client['id'];
         $mylist['Emplac_fich'] = $request->file('doc')->store('images/maliste', 'public');

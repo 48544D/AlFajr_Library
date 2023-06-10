@@ -40,6 +40,7 @@ class CommandeController extends Controller
                 'total_quant' => Cart::count(),
                 'total_price' => Cart::subtotal(),
                 'estTraite' => false,
+               
             ]
         );
         $order->save();

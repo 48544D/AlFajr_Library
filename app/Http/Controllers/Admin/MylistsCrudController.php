@@ -33,8 +33,7 @@ class MylistsCrudController extends CrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/mylists');
         CRUD::setEntityNameStrings('mylists', 'mylists');
         $this->crud->addButtonFromView('line', 'download', 'download', 'beginning');
-       // $this->crud->setView('crud.list_mylists');
-       //search for a specific product
+     
        
     
     }
@@ -62,38 +61,59 @@ class MylistsCrudController extends CrudController
 
     protected function setupListOperation()
     {   
-       // CRUD::column('Nom_doc');
-       // CRUD::column('Emplac_fich');
-        // CRUD::column('Etablissement');
-        CRUD::column('Niveau');
-        CRUD::column('client_id');
+       
+           //add a reference field
+        CRUD::addColumn('reference');
         CRUD::addColumn([
-            'label' => "Prenom du client",
-            'name' => 'Nom_id', // the db column for the foreign key
-            'entity' => 'client', // the method that defines the relationship in your Model
-            'attribute' => 'prenom', 
-            'model' => "App\Models\Clients", // foreign key model   
+            'name' => 'nom',
+            'type' => 'select',
+            'label' => 'Nom',
+            'entity' => 'client',
+            'attribute' => 'nom',
+            'model' => "App\Models\Client",
         ]);
-       // CRUD::column('created_at');
-        //CRUD::column('updated_at');
-        //Display an image
-      /*  CRUD::addColumn([
-            'label'=>'Image',
-            'name'=>'Emplac_fich',
-            'type'=>'image',
-            'upload'=>true,
-            'path'=>"public/uploads/mylists",
-        ]);*/
+        
+        CRUD::addColumn([
+            'name' => 'prenom',
+            'type' => 'select',
+            'label' => 'Prenom',
+            'entity' => 'client',
+            'attribute' => 'prenom',
+            'model' => "App\Models\Client",
+        ]);
+        CRUD::addColumn([
+            'name' => 'telephone',
+            'type' => 'select',
+            'label' => 'Telephone',
+            'entity' => 'client',
+            'attribute' => 'telephone',
+            'model' => "App\Models\Client",
+        ]);
+     
+        //add a column that shows the boolean estTraite
+        CRUD::addColumn([
+            'label' => "Etat",
+            'name' => 'estTraite', // the db column for the foreign key
+            'type' => 'boolean',
+            'options' => [0 => 'En attente', 1 => 'Traitée'],
+            'wrapper' => [
+                'element' => 'span',
+                'class' => function ($crud, $column, $entry, $related_key) {
+                    return $entry->estTraite ? 'badge badge-success' : 'badge badge-warning';
+                },
+                'style' => 'height: 28px;font-size: 15px;color:white;width: 100px;',
+            ],
+        ]);
+        //add a column that displays the file
+        CRUD::addColumn([
+            'name' => 'Emplac_fich',
+            'label' => 'Fichier',
+           'type' => 'image',
+            'path' => public_path('storage/'),
 
-        //display the name of the client
-        CRUD::addColumn([
-            'label' => "Nom du client",
-            'name' => 'client_id', // the db column for the foreign key
-            'entity' => 'client', // the method that defines the relationship in your Model
-            'attribute' => 'name', 
-            'model' => "App\Models\Clients", // foreign key model
-           
         ]);
+       
+        
         
         
        // $this->crud->addButtonFromView('Emplac_fich', 'download', 'download', 'beginning');
@@ -134,6 +154,8 @@ class MylistsCrudController extends CrudController
         ],
         ] 
         ]);
+        CRUD::field('reference');
+        CRUD::addField('estTraite');
 
         /* Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

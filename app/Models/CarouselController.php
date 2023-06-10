@@ -6,7 +6,7 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Mylists extends Model
+class CarouselController extends Model
 {
     use CrudTrait;
     use HasFactory;
@@ -17,20 +17,11 @@ class Mylists extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'mylists';
+    protected $table = 'carousel_controllers';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    // clients attributes
-    protected $fillable = [
-        'client_id',
-        'Nom_doc',
-        'Emplac_fich',
-        'Etablissement',
-        'Niveau',
-        'estTraite',
-        'reference'
-    ];
+    // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -39,10 +30,6 @@ class Mylists extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-   public function client()
-   {
-         return $this->belongsTo(Clients::class);
-   }
 
     /*
     |--------------------------------------------------------------------------

@@ -67,3 +67,6 @@ Route::prefix('commande')->controller(CommandeController::class)->group(function
     // commande store
     Route::post('/', 'store')->name('commande.store');
 });
+
+
+
