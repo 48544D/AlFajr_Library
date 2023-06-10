@@ -6,7 +6,7 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CarouselController extends Model
+class Carousel extends Model
 {
     use CrudTrait;
     use HasFactory;
@@ -17,7 +17,7 @@ class CarouselController extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'carousel_controllers';
+    protected $table = 'carousels';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];

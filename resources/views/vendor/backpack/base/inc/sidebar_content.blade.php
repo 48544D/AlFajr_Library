@@ -10,3 +10,5 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('clients') }}"><i class="las la-user"></i> Clients</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('user') }}"><i class="las la-users"></i> Utilisateurs</a></li>
 <!--<li class="nav-item"><a class="nav-link" href="{{ backpack_url('order-details') }}"><i class="nav-icon la la-question"></i> Order details</a></li>-->
+
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('carousel') }}"><i class="las la-cog"></i> Carousels</a></li>
