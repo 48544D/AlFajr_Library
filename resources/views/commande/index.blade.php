@@ -13,7 +13,9 @@
                 <div class="form">
                     <div class="form-field">
                         <label for="nom">Nom*</label>
-                        <input type="text" name="nom" placeholder="(obligatoire)" required>
+                        <input type="text" name="nom" placeholder="(obligatoire)"
+                        value="{{old('nom')}}"
+                        required>
                         @error('nom')
                             <span class="text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -22,7 +24,9 @@
                     </div>
                     <div class="form-field">
                         <label for="tele">Prenom*</label>
-                        <input type="text" name="prenom" placeholder="(obligatoire)" required>
+                        <input type="text" name="prenom" placeholder="(obligatoire)"
+                        value="{{old('prenom')}}"
+                        required>
                         @error('prenom')
                             <span class="text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -31,7 +35,9 @@
                     </div>
                     <div class="form-field">
                         <label for="tele">Telephone*</label>
-                        <input type="tel" name="tele" placeholder="06XXXXXXXX" pattern="0[5-7][0-9]{8}" required>
+                        <input type="tel" name="tele" placeholder="06XXXXXXXX" pattern="0[5-7][0-9]{8}"
+                        value="{{old('tele')}}"
+                        required>
                         @error('tele')
                             <span class="text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -40,7 +46,9 @@
                     </div>
                     <div class="form-field">
                         <label for="email">Email*</label>
-                        <input type="email" name="email" placeholder="(obligatoire)" required>
+                        <input type="email" name="email" placeholder="(obligatoire)" 
+                        value="{{old('email')}}"
+                        required>
                         @error('email')
                             <span class="text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
