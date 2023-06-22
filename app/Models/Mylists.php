@@ -28,6 +28,8 @@ class Mylists extends Model
         'Emplac_fich',
         'Etablissement',
         'Niveau',
+        'estTraite',
+        'reference'
     ];
     // protected $hidden = [];
     // protected $dates = [];

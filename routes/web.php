@@ -57,6 +57,12 @@ Route::prefix('maliste')->controller(MalisteController::class)->group(function (
         Route::get('/', 'index')->name('maliste.index');
         // store
         Route::post('/', 'store')->name('maliste.store');
+
+        // maliste success
+        Route::get('/success', function () {
+            $ref = session('ref');
+            return view('maliste.success', compact('ref'));
+        })->name('maliste.success');
     }
 });
 

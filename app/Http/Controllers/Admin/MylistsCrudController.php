@@ -32,9 +32,7 @@ class MylistsCrudController extends CrudController
         CRUD::setModel(\App\Models\Mylists::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/mylists');
         CRUD::setEntityNameStrings('mylists', 'mylists');
-        $this->crud->addButtonFromView('line', 'download', 'download', 'beginning');
-       // $this->crud->setView('crud.list_mylists');
-       //search for a specific product
+      
        
     
     }
@@ -62,38 +60,64 @@ class MylistsCrudController extends CrudController
 
     protected function setupListOperation()
     {   
-       // CRUD::column('Nom_doc');
-       // CRUD::column('Emplac_fich');
-        // CRUD::column('Etablissement');
-        CRUD::column('Niveau');
-        CRUD::column('client_id');
+       
+           //add a reference field
+        CRUD::addColumn('reference');
         CRUD::addColumn([
-            'label' => "Prenom du client",
-            'name' => 'Nom_id', // the db column for the foreign key
-            'entity' => 'client', // the method that defines the relationship in your Model
-            'attribute' => 'prenom', 
-            'model' => "App\Models\client", // foreign key model   
+            'name' => 'nom',
+            'type' => 'select',
+            'label' => 'Nom',
+            'entity' => 'client',
+            'attribute' => 'nom',
+            'model' => "App\Models\Client",
         ]);
-       // CRUD::column('created_at');
-        //CRUD::column('updated_at');
-        //Display an image
-      /*  CRUD::addColumn([
-            'label'=>'Image',
-            'name'=>'Emplac_fich',
-            'type'=>'image',
-            'upload'=>true,
-            'path'=>"public/uploads/mylists",
-        ]);*/
-
-        //display the name of the client
+        
         CRUD::addColumn([
-            'label' => "Nom du client",
-            'name' => 'client_id', // the db column for the foreign key
-            'entity' => 'client', // the method that defines the relationship in your Model
-            'attribute' => 'name', 
-            'model' => "App\Models\client", // foreign key model
-           
+            'name' => 'prenom',
+            'type' => 'select',
+            'label' => 'Prenom',
+            'entity' => 'client',
+            'attribute' => 'prenom',
+            'model' => "App\Models\Client",
         ]);
+        CRUD::addColumn([
+            'name' => 'telephone',
+            'type' => 'select',
+            'label' => 'Telephone',
+            'entity' => 'client',
+            'attribute' => 'telephone',
+            'model' => "App\Models\Client",
+        ]);
+     
+        //add a column that shows the boolean estTraite
+        CRUD::addColumn([
+            'label' => "Etat",
+            'name' => 'estTraite', // the db column for the foreign key
+            'type' => 'boolean',
+            'options' => [0 => 'En attente', 1 => 'Traitée'],
+            'wrapper' => [
+                'element' => 'span',
+                'class' => function ($crud, $column, $entry, $related_key) {
+                    return $entry->estTraite ? 'badge badge-success' : 'badge badge-warning';
+                },
+                'style' => 'height: 28px;font-size: 15px;color:white;width: 100px;',
+            ],
+        ]);
+        CRUD::addColumn([
+            'label' => "Fichier",
+            'name' => "Emplac_fich",
+            'type' => 'image',
+            'upload' => true,
+            'disk' => 'local',
+            'width' => '100px',
+            'height' => '150px',
+        ]);
+         //remove show button
+        $this->crud->removeButton('show');
+        $this->crud->addButtonFromView('line', 'download', 'download', 'beginning');
+        $this->crud->addClause('orderBy', 'estTraite', 'asc');
+        //add button to validate the order in the end of the line
+        $this->crud->addButtonFromView('line', 'valider', 'valider', 'end');
         
         
        // $this->crud->addButtonFromView('Emplac_fich', 'download', 'download', 'beginning');
@@ -105,7 +129,17 @@ class MylistsCrudController extends CrudController
          * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
          */
     }
-
+    public function valider($id)
+    {
+            $mylists = \App\Models\Mylists::findOrFail($id); 
+            if($mylists->estTraite == 0)
+            {
+                $mylists->estTraite = 1; 
+                $mylists->save(); 
+            }
+            return redirect()->back();
+    }
+    
     /**
      * Define what happens when the Create operation is loaded.
      * 
@@ -126,14 +160,10 @@ class MylistsCrudController extends CrudController
             'name' => 'Emplac_fich',
             'type' => 'upload',
             'upload' => true,
-            'disk' => 'local',
-            'rules' => 'image',
-            'validation' => [
-               'messages' => [
-               'image' => 'Le fichier doit être une image',
-        ],
-        ] 
+            'disk' => 'local', 
         ]);
+        CRUD::field('reference');
+        CRUD::addField('estTraite');
 
         /* Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

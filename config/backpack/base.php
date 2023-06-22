@@ -10,6 +10,8 @@ return [
     | Make it yours.
     |
     */
+    
+    // ...
 
     // Date & Datetime Format Syntax: https://carbon.nesbot.com/docs/#api-localization
     'default_date_format'     => 'D MMM YYYY',
@@ -167,7 +169,7 @@ return [
 
     // The prefix used in all base routes (the 'admin' in admin/dashboard)
     // You can make sure all your URLs use this prefix by using the backpack_url() helper instead of url()
-    'route_prefix' => 'admin',
+    'route_prefix' => 'fajral/nimda',
 
     // The web middleware (group) used in all base & CRUD routes
     // If you've modified your "web" middleware group (ex: removed sessions), you can use a different

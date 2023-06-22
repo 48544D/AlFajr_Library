@@ -101,7 +101,8 @@ class OrderCrudController extends CrudController
         if (isset($_GET['order_id'])) {
             unset($_GET['order_id']); // Remove the order_id from the query parameters
         }
-        return redirect('admin/order-details?order_id='.$id);
+    $admin=backpack_url();
+        return redirect($admin.'/order-details?order_id='.$id);
     }
 
 
@@ -112,7 +113,8 @@ class OrderCrudController extends CrudController
         $order = \App\Models\Order::findOrFail($id); 
         $order->estTraite = 1; 
         $order->save(); 
-        return redirect('admin/order');
+        $admin=backpack_url();
+        return redirect($admin.'/order');
 }
 
     

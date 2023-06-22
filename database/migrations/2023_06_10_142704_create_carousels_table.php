@@ -13,15 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('mylists', function (Blueprint $table) {
+        Schema::create('carousels', function (Blueprint $table) {
             $table->id();
-            $table ->string('Nom_doc');
-            $table ->string('Emplac_fich');
-            $table ->string('Etablissement');
-            $table ->string('Niveau');
-            $table->unsignedBigInteger('client_id');
-            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
-            
+            $table->string('image');
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mylists');
+        Schema::dropIfExists('carousels');
     }
 };

@@ -29,8 +29,10 @@ use Illuminate\Support\Facades\Route;
         
     });
 */
+//Route::get('account/modify', [CustomAccountController::class, 'getAccountInfoForm'])->name('account.modify');
+//Route::post('account/modify', [CustomAccountController::class, 'postAccountInfoForm']);
 Route::group([
-    'prefix'     => config('backpack.base.route_prefix', 'admin'),
+    'prefix'     => config('backpack.base.route_prefix', backpack_url()),
     'middleware' => array_merge(
         (array) config('backpack.base.web_middleware', 'web'),
         (array) config('backpack.base.middleware_key', 'admin')
@@ -48,13 +50,12 @@ Route::group([
     Route::get('mylists/{id}/download', 'MylistsCrudController@download');
     Route::crud('order-details', 'OrderDetailsCrudController');
     Route::get('order/{id}/details', 'OrderCrudController@details');
-    //promotion from products to promotions
     Route::get('product/{id}/promotion', 'ProductCrudController@promotion');
     Route::get('order/{id}/valider', 'OrderCrudController@valider');
-    //route for CreateWithId
-   // Route::get('promotions/CreateWithId', 'PromotionsCrudController@CreateWithId');
-    //download route
-    //Route::get('download/{id}', 'MylistsCrudController@download')->name('download');
-    //Route::get('/mylists/download/{id}', 'MylistsCrudController@download')->name('download');
+    Route::get('mylists/{id}/valider', 'MylistsCrudController@valider');
+
+    //update carousel
+  // Route::get('carousel/{id}/update', 'CarouselCrudController@update');
     Route::crud('control', 'ControlCrudController');
+    Route::crud('carousel', 'CarouselCrudController');
 }); // this should be the absolute last line of this file
