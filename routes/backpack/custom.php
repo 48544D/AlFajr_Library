@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\CustomAccountController;
+
 //use App\Http\Controllers\Admin;
 // --------------------------
 // Custom Backpack Routes
@@ -31,6 +33,8 @@ use Illuminate\Support\Facades\Route;
 */
 //Route::get('account/modify', [CustomAccountController::class, 'getAccountInfoForm'])->name('account.modify');
 //Route::post('account/modify', [CustomAccountController::class, 'postAccountInfoForm']);
+
+
 Route::group([
     'prefix'     => config('backpack.base.route_prefix', backpack_url()),
     'middleware' => array_merge(

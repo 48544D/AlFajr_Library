@@ -2,6 +2,8 @@
 <html lang="{{ app()->getLocale() }}" dir="{{ config('backpack.base.html_direction') }}">
 <head>
     @include(backpack_view('inc.head'))
+    <link rel="icon" href=" {{ asset('storage/images/favicon.ico') }}" type="image/x-icon">
+    
 </head>
 <body class="app flex-row align-items-center">
 

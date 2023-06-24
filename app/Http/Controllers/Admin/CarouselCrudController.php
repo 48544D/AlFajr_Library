@@ -82,6 +82,14 @@ class CarouselCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(CarouselRequest::class);
+       
+        $carouselCount = \App\Models\Carousel::count();
+        if($carouselCount >= 3){
+           //set abort with message
+              abort(403, 'Vous ne pouvez pas ajouter plus de 3 images');
+
+            
+        }
         //description column
         CRUD::addField([
             'name' => 'description',

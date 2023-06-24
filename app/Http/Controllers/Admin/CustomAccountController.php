@@ -1,30 +1,29 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-//import MyAccoutController
+
+use Alert;
+use App\Http\Requests\CustomAccountInfoRequest;
 use Backpack\CRUD\app\Http\Controllers\MyAccountController;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Routing\Controller;
 
-class CustomAccountController extends MyAccoutController
+class CustomAccountController extends MyAccountController
 {
-    public function getAccountInfoForm()
-{
-    // Your role check logic here to restrict access for certain roles
-    if (backpack_user()->hasRole('personnel')) {
-        abort(403, 'Unauthorized');
+    /**
+     * Save the modified personal information for a user.
+     */
+    public function CustomPostAccountInfoForm(CustomAccountInfoRequest $request)
+    {
+       
+        $result = $this->guard()->user()->update($request->except(['_token']));
+
+        if ($result) {
+            Alert::success(trans('backpack::base.account_updated'))->flash();
+        } else {
+            Alert::error(trans('backpack::base.error_saving'))->flash();
+        }
+       
+        return redirect()->back();
     }
-
-    return parent::getAccountInfoForm();
-}
-
-public function postAccountInfoForm(AccountInfoRequest $request)
-{
-    // Your role check logic here to restrict access for certain roles
-    if (backpack_user()->hasRole('personnel')) {
-        abort(403, 'Unauthorized');
-    }
-
-    return parent::postAccountInfoForm($request);
-}
-
 }

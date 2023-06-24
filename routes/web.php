@@ -21,6 +21,17 @@ use App\Models\control;
 */
 
 // redirect home to products
+Route::post('account/modify', 'App\Http\Controllers\Admin\CustomAccountController@CustomPostAccountInfoForm')
+    ->name('backpack.account.info.store');
+
+Route::get('account/modify', 'App\Http\Controllers\Admin\CustomAccountController@getAccountInfoForm')
+    ->name('backpack.account.info');
+
+Route::get('account/password', 'App\Http\Controllers\Admin\CustomAccountController@getAccountPasswordForm')
+    ->name('backpack.account.password');
+
+Route::post('account/password', 'App\Http\Controllers\Admin\CustomAccountController@postChangePasswordForm')
+    ->name('backpack.account.password.store');
 Route::get('/', function () {
     return redirect()->route('home');
 });
