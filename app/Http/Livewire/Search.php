@@ -4,31 +4,20 @@ namespace App\Http\Livewire;
 
 use App\Models\control;
 use App\Models\Product;
-use App\Models\Promotions;
 use Livewire\Component;
-use Livewire\WithPagination;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
-class ProductTable extends Component
+class Search extends Component
 {
-    use WithPagination;
-    protected $paginationTheme = 'bootstrap';
-    // protected $listeners = ['reloadProducts'];
-
-    public $perPage = 28;
-    public $promotionLimit = 8;
-    // protected $emited_products;
+    protected $perPage = 28;
 
     public function render()
     {
-        // $products = $this->emited_products ?? Product::filter(request(['search']))->paginate($this->perPage);
-        $promotions = Promotions::with('product')->limit($this->promotionLimit)->get();
-
-        $products = Product::paginate($this->perPage);
+        $products = Product::filter(request(['search']))->paginate($this->perPage);
 
         $panierActif = control::first()->PanierActif;
-
-        return view('livewire.product-table', ['promotions' => $promotions, 'products' => $products ,'panierActif' => $panierActif]);
+        
+        return view('livewire.search', ['products' => $products, 'panierActif' => $panierActif]);
     }
 
     public function addToCart($product_id)
@@ -68,12 +57,6 @@ class ProductTable extends Component
 
         session()->flash('LivewireMessage', 'Produit ajouté au panier !');
         $this->emit('alert_remove');
-    }
 
-    // public function reloadProducts($query)
-    // {
-    //     $this->resetPage();
-    //     $this->emited_products = Product::where('name', 'like', '%' . $query . '%')->paginate($this->perPage);
-    //     $this->render();
-    // }
+    }
 }

@@ -9,7 +9,7 @@
             </a>
         </div>
         <div class="search">
-            <form action="/products" method="GET">
+            <form action="{{ route('search') }}" method="GET">
                 <input type="text" name="search" placeholder="Recherecher" value="{{ request('search') }}">
                 <button type="submit">
                     <i class="fa fa-search"></i>
@@ -33,7 +33,7 @@
     <hr>
     <div class="bottom-section">
         <div class="bottom-search">
-            <form action="/products" method="GET">
+            <form action="{{ route('search') }}" method="GET">
                 <input type="text" name="search" placeholder="Recherecher" value="{{ request('search') }}">
                 <button type="submit">
                     <i class="fa fa-search"></i>

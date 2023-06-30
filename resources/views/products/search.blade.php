@@ -6,6 +6,5 @@
 @endsection
 
 @section('content')
-    <x-carousel/>
-    @livewire('product-table')
+    @livewire('search')
 @endsection

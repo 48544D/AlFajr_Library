@@ -29,6 +29,8 @@ Route::get('/', function () {
 Route::prefix('products')->controller(ProductController::class)->group(function () {
     // get all products
     Route::get('/', 'index')->name('home');
+    // search a product
+    Route::get('/search', 'search')->name('search');
     // get single product
     Route::get('/{product}', 'show')->name('products.show');
 });
