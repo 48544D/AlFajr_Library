@@ -96,10 +96,10 @@ return [
     'sidebar_class' => 'sidebar', // add "bg-white sidebar-pills" for light sidebar
     'footer_class' => 'app-footer d-none',
     // Developer or company name. Shown in footer.
-    'developer_name' => 'Cristian Tabacitu',
+    'developer_name' => '',
 
     // Developer website. Link in footer. Type false if you want to hide it.
-    'developer_link' => 'http://tabacitu.ro',
+    'developer_link' => 'false',
 
     // Show powered by Laravel Backpack in the footer? true/false
     'show_powered_by' => false,
@@ -195,7 +195,7 @@ return [
 
     // Set this to false if you would like to skip adding "my account" routes
     // (you then need to manually define the routes in your web.php)
-    'setup_my_account_routes' => true,
+    'setup_my_account_routes' => false,
 
     // Set this to false if you would like to skip adding the password recovery routes
     // (you then need to manually define the routes in your web.php)

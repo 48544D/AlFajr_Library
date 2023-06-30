@@ -50,6 +50,8 @@
         {{-- UPDATE INFO FORM --}}
         <div class="col-lg-8">
             <form class="form" action="{{ route('backpack.account.info.store') }}" method="post">
+               
+
 
                 {!! csrf_field() !!}
 
@@ -134,7 +136,7 @@
 
                             <div class="col-md-4 form-group">
                                 @php
-                                    $label = trans('backpack::base.confirm_password');
+                                    $label = 'Confirmer le mot de passe';
                                     $field = 'confirm_password';
                                 @endphp
                                 <label class="required">{{ $label }}</label>

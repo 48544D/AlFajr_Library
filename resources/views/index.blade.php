@@ -8,6 +8,8 @@
 
     {{-- style --}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+   
+    <link rel="icon" href=" {{ asset('storage/images/favicon.ico') }}" type="image/x-icon">
     
     {{-- livewire --}}
     @livewireStyles
