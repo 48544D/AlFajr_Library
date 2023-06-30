@@ -15,4 +15,8 @@ class ProductController extends Controller
     {
         return view('products.show', ['product' => $product]);
     }
+
+    public function search() {
+        return view('products.search');
+    }
 }

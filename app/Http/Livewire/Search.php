@@ -1,32 +1,25 @@
 <?php
 
-namespace App\Http\Livewire\Promotions;
+namespace App\Http\Livewire;
 
 use App\Models\control;
 use App\Models\Product;
 use Livewire\Component;
-use App\Models\Promotions;
-use Livewire\WithPagination;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
-class Index extends Component
+class Search extends Component
 {
-    use WithPagination;
-    protected $paginationTheme = 'bootstrap';
-
-    public $perPage = 28;
-    public $subCategory_id;
+    protected $perPage = 28;
 
     public function render()
     {
-        $promotions = Promotions::with('product')->paginate($this->perPage);
-        $panierActif = control::first()->PanierActif;
+        $products = Product::filter(request(['search']))->paginate($this->perPage);
 
-        return view('livewire.promotions.index', [
-            'promotions' => $promotions,
-            'panierActif' => $panierActif,
-        ]);
+        $panierActif = control::first()->PanierActif;
+        
+        return view('livewire.search', ['products' => $products, 'panierActif' => $panierActif]);
     }
+
     public function addToCart($product_id)
     {
         $product = Product::findOrFail($product_id);
@@ -64,5 +57,6 @@ class Index extends Component
 
         session()->flash('LivewireMessage', 'Produit ajouté au panier !');
         $this->emit('alert_remove');
+
     }
 }
