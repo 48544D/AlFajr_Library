@@ -26,7 +26,7 @@ class SubCategoryCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\SubCategory::class);
+        CRUD::setModel(\App\Models\subCategory::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/sub-category');
         CRUD::setEntityNameStrings('sub category', 'sub categories');
         if(backpack_user()->hasRole('admin')){

@@ -26,7 +26,7 @@ class CategoryCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Category::class);
+        CRUD::setModel(\App\Models\category::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/category');
         CRUD::setEntityNameStrings('category', 'categories');
         //allow if the user has role admin

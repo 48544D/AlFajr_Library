@@ -31,7 +31,7 @@ class Product extends Model
     
     public function subCategory()
     {
-        return $this->belongsTo(SubCategory::class);
+        return $this->belongsTo(subCategory::class);
     }
 
     public function order_details()

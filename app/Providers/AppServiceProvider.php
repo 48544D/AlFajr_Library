@@ -13,10 +13,11 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+ public function register()
     {
         $this->app->register(NavbarServiceProvider::class);
     }
+
 
     /**
      * Bootstrap any application services.

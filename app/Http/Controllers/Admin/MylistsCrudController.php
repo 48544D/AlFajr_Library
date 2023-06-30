@@ -69,7 +69,7 @@ class MylistsCrudController extends CrudController
             'label' => 'Nom',
             'entity' => 'client',
             'attribute' => 'nom',
-            'model' => "App\Models\Client",
+            'model' => "App\Models\client",
         ]);
         
         CRUD::addColumn([
@@ -78,7 +78,7 @@ class MylistsCrudController extends CrudController
             'label' => 'Prenom',
             'entity' => 'client',
             'attribute' => 'prenom',
-            'model' => "App\Models\Client",
+            'model' => "App\Models\client",
         ]);
         CRUD::addColumn([
             'name' => 'telephone',
@@ -86,7 +86,7 @@ class MylistsCrudController extends CrudController
             'label' => 'Telephone',
             'entity' => 'client',
             'attribute' => 'telephone',
-            'model' => "App\Models\Client",
+            'model' => "App\Models\client",
         ]);
      
         //add a column that shows the boolean estTraite

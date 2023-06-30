@@ -26,7 +26,7 @@ class ControlCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Control::class);
+        CRUD::setModel(\App\Models\control::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/control');
         CRUD::setEntityNameStrings('control', 'controls');
         $this->crud->setListView('controlsList');

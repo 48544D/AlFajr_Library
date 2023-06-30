@@ -11,6 +11,6 @@ class CartController extends Controller
     // get cart
     public function index()
     {
-        return view('cart.index');
+        return view('Cart.index');
     }
 }

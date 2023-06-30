@@ -57,7 +57,7 @@ class ProductCrudController extends CrudController
         CRUD::addColumn([
             'label' => "Image de produit",
             'name' => "image",
-            'type' => 'Image',
+            'type' => 'image',
             'upload' => true,
             'disk' => 'local',
         ]);

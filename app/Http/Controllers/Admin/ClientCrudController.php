@@ -26,7 +26,7 @@ class ClientCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Client::class);
+        CRUD::setModel(\App\Models\client::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/client');
         CRUD::setEntityNameStrings('client', 'clients');
         if(backpack_user()->hasRole('admin')){

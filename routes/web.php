@@ -61,7 +61,7 @@ Route::prefix('cart')->controller(CartController::class)->group(function () {
 Route::prefix('maliste')->controller(MalisteController::class)->group(function () {
     if (control::first()->MaListeActive == 0) {
         Route::get('/', function () {
-            return redirect()->route('home')->with('message', 'Ma liste désactivé !');
+            return redirect()->route('home')->with('message', 'Ce service est actuellement indisponible !');
         })->name('maliste.index');
     } else {
         // get maliste

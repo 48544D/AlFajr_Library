@@ -26,7 +26,7 @@ class CarouselCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Carousel::class);
+        CRUD::setModel(\App\Models\carousel::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/carousel');
         CRUD::setEntityNameStrings('carousel', 'carousels');
         if(backpack_user()->hasRole('admin')){
@@ -59,7 +59,7 @@ class CarouselCrudController extends CrudController
         CRUD::addColumn([
             'label' => "Image de carousel",
             'name' => "image",
-            'type' => 'Image',
+            'type' => 'image',
             'upload' => true,
             'disk' => 'local',
             'width' => '100px',
