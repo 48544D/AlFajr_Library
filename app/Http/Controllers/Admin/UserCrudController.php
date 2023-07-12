@@ -85,7 +85,7 @@ class UserCrudController extends CrudController
         //show password option
         
 
-        //CRUD::field('password')->label('Mot de passe');
+        CRUD::field('password')->label('Mot de passe')->type('text');
 
         //CRUD::field('password')->label('Mot de passe');
 

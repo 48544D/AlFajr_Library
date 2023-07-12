@@ -50,8 +50,8 @@ class MylistsCrudController extends CrudController
        if($id){
         $mylist = \App\Models\Mylists::find($id);
         $file_path =$mylist->Emplac_fich;
-        $file_path = str_replace('/', '\\', $file_path); 
-        return response()->download(app_path('\..\public\storage\\'.$file_path));
+        //$file_path = str_replace('/', '\\', $file_path); 
+        return response()->download(storage_path('app/public/' . $file_path));
        }
        else{
         return redirect()->back();

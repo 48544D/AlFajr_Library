@@ -44,16 +44,25 @@
                     <i class="fa fa-phone" aria-hidden="true"></i>
                     (0) 530-039-637
                 </p>
+                <p>
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    (0) 666-841974
+                </p>
+               <p>
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    (0) 674-447176
+                </p>
+
             </div>
             <div class="horaire">
                 <p>
                     <i class="fa-solid fa-clock"></i>
-                    LUNDI-SAMEDI 9:00-22:00
+                    LUNDI-SAMEDI 9:30-21:00
     
                 </p>
                 <p>
                     <i class="fa-solid fa-clock"></i>
-                    DIMANCHE 10:00-22:00
+                    DIMANCHE 10:00-21:00
                 </p>
             </div>
         </div>
